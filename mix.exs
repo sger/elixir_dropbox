@@ -14,7 +14,7 @@ defmodule ElixirDropbox.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpoison]]
+    [applications: [:logger, :httpoison, :exjsx]]
   end
 
   # Dependencies can be Hex packages:
@@ -28,8 +28,9 @@ defmodule ElixirDropbox.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      { :httpoison, "~> 0.8.0" },
-      { :poison, "~> 1.5" }
+      { :httpoison, "~> 0.8" },
+      { :poison, "~> 1.5" },
+      { :exjsx, "~> 3.2" }
     ]
   end
 end

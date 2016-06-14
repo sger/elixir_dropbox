@@ -7,5 +7,6 @@ defmodule ElixirDropbox.Account do
               email_verified: nil,
               is_paired: nil,
               locale: nil,
-              referral_link: nil
+              referral_link: nil,
+              name: ElixirDropbox.Name
 end

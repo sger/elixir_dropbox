@@ -30,7 +30,7 @@ defmodule ElixirDropbox.Client do
   	end
 
   	defp do_request(method, url, body \\ "") do
-  		headers = [{"Authorization", "Bearer IV3n31frOYcAAAAAAAANQygXdWwyam2KMwZTvg8dPJH7bIIJ9lRGx5Fbw387jy1z"}]
+  		headers = [{"Authorization", "Bearer #{Application.get_env(:elixir_dropbox, :access_token)}"}]
 
   		case body do
       		{:json, json} ->

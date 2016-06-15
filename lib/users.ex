@@ -28,6 +28,10 @@ defmodule ElixirDropbox.Users do
     to_struct(%ElixirDropbox.Account{}, current_account)
   end
 
+  def get_space_usage do
+    ElixirDropbox.post("/users/get_space_usage", "null")
+  end
+
     def to_struct(kind, attrs) do
       struct = struct(kind)
       Enum.reduce Map.to_list(struct), struct, fn {k, _}, acc ->

@@ -1,53 +1,32 @@
 defmodule ElixirDropbox.Users do
-	import ElixirDropbox
-	alias ElixirDropbox.Client
+  import ElixirDropbox
+  alias ElixirDropbox.Client
 
-	def get_usage do
-		ElixirDropbox.post "/users/get_space_usage"
-	end
+  def get_usage do
+    ElixirDropbox.post "/users/get_space_usage", "null"
+  end
 
-	def get_account do
-		# body = %{ "account_id" => "dbid:AABYkM-pR8ynnNPIVBjMTPRrIyuT4bgtick" }
+  def get_usage_to_struct do
+    
+  end
 
-    # headers = [{"Authorization", "Bearer #{Application.get_env(:elixir_dropbox, :access_token)}"}]
-    # headers = [{"Content-Type", "application/json"} | headers]
+  def get_account(id) do
+    body = %{"account_id" => id}
+    result = to_string(Poison.Encoder.encode(body, []))
+    ElixirDropbox.post("/users/get_account", result)
+  end
 
-    # First way
-    # HTTPoison.post("https://api.dropboxapi.com/2/users/get_account", "{\"account_id\": \"dbid:AABYkM-pR8ynnNPIVBjMTPRrIyuT4bgtick\"}", headers)
+  def get_account_to_struct(id) do
+    to_struct(%ElixirDropbox.Account{}, get_account(id))
+  end
 
-    # second way
-    # HTTPoison.request(:post, "https://api.dropboxapi.com/2/users/get_account", "{\"account_id\": \"dbid:AABYkM-pR8ynnNPIVBjMTPRrIyuT4bgtick\"}", headers)
+  def current_account do
+    ElixirDropbox.post("/users/get_current_account", "null")
+  end
 
-    # third way
-
-    # HTTPoison.post("https://api.dropboxapi.com/2/users/get_space_usage", "null", headers)
-    # HTTPoison.post("https://api.dropboxapi.com/2/users/get_current_account", "null", headers)
-
-    # fourth way
-    # ElixirDropbox.do_request(:post, "/users/get_space_usage", "null")
-    # ElixirDropbox.do_request(:post, "/users/get_current_account", "null")
-    # ElixirDropbox.do_request(:post, "/users/get_account", "{\"account_id\": \"dbid:AABYkM-pR8ynnNPIVBjMTPRrIyuT4bgtick\"}")
-
-    # ElixirDropbox.post("/users/get_space_usage", "null")
-    # ElixirDropbox.post("/users/get_current_account", "null")
-
-     body = %{"account_id" => "dbid:AABYkM-pR8ynnNPIVBjMTPRrIyuT4bgtick"}
-     result = to_string(Poison.Encoder.encode(body, []))
-    # IO.puts result
-
-     ElixirDropbox.post("/users/get_account", result)
-   
-	end
-
-
-
-	 def current_account do
-		 ElixirDropbox.post("/users/get_current_account", "null")
-    end
-
-    def current_account_to_struct do 
-    	to_struct(%ElixirDropbox.Account{}, ElixirDropbox.post("/users/get_current_account", "null"))
-    end
+  def current_account_to_struct do 
+    to_struct(%ElixirDropbox.Account{}, current_account)
+  end
 
     def to_struct(kind, attrs) do
       struct = struct(kind)

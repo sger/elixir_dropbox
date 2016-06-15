@@ -30,7 +30,8 @@ defmodule ElixirDropbox.Mixfile do
     [
       { :httpoison, "~> 0.8" },
       { :poison, "~> 1.5" },
-      { :exjsx, "~> 3.2" }
+      { :exjsx, "~> 3.2" },
+      {:inch_ex, "~> 0.5", only: :docs}
     ]
   end
 end

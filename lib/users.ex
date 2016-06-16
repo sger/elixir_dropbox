@@ -1,35 +1,33 @@
 defmodule ElixirDropbox.Users do
-  import ElixirDropbox
-  alias ElixirDropbox.Client
 
-  def get_usage do
-    ElixirDropbox.post "/users/get_space_usage", "null"
+  def get_usage(client) do
+    ElixirDropbox.post client, "/users/get_space_usage", "null"
   end
 
   def get_usage_to_struct do
     
   end
 
-  def get_account(id) do
+  def get_account(id, client) do
     body = %{"account_id" => id}
     result = to_string(Poison.Encoder.encode(body, []))
-    ElixirDropbox.post("/users/get_account", result)
+    ElixirDropbox.post(client, "/users/get_account", result)
   end
 
-  def get_account_to_struct(id) do
-    to_struct(%ElixirDropbox.Account{}, get_account(id))
+  def get_account_to_struct(id, client) do
+    to_struct(%ElixirDropbox.Account{}, get_account(id, client))
   end
 
-  def current_account do
-    ElixirDropbox.post("/users/get_current_account", "null")
+  def current_account(client) do
+    ElixirDropbox.post(client, "/users/get_current_account", "null")
   end
 
-  def current_account_to_struct do 
-    to_struct(%ElixirDropbox.Account{}, current_account)
+  def current_account_to_struct(client) do 
+    to_struct(%ElixirDropbox.Account{}, current_account(client))
   end
 
-  def get_space_usage do
-    ElixirDropbox.post("/users/get_space_usage", "null")
+  def get_space_usage(client) do
+    ElixirDropbox.post(client, "/users/get_space_usage", "null")
   end
 
     def to_struct(kind, attrs) do

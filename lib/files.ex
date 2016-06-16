@@ -1,17 +1,20 @@
 defmodule ElixirDropbox.Files do
 
-  def create_folder do
+  def create_folder(client) do
     body = %{"path" => "/test"}
     result = to_string(Poison.Encoder.encode(body, []))
-    ElixirDropbox.post("/files/create_folder", result) 
+    ElixirDropbox.post(client, "/files/create_folder", result) 
   end  
 
-  def upload do
-  	{:ok, file} = File.open "README.md"
-  	body = %{"path" => "/README.md"}
-    result = to_string(Poison.Encoder.encode(body, []))
-
-  	File.close file
-  end
+    def upload(client, path, file, mode \\ "add", autorename \\ true, mute \\ false) do
+    dropbox_headers = %{
+      :path => path,
+      :mode => mode,
+      :autorename => autorename,
+      :mute => mute
+    }
+    headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers), "Content-Type" => "application/octet-stream" }
+    ElixirDropbox.upload_request(client, "files/upload", file, headers)
+   end
 
 end

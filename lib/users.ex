@@ -1,11 +1,22 @@
 defmodule ElixirDropbox.Users do
+  
+  @doc """
+  Get user account by account_id
 
+  ## Example
+
+    ElixirDropbox.Users dbid:AABYkM-pR8ynnNPIVBjMTPRrIyuT4bgtest, client  
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account
+  """  
+  @spec get_account(binary, Client) :: Map
   def get_account(id, client) do
     body = %{"account_id" => id}
     result = to_string(Poison.Encoder.encode(body, []))
     ElixirDropbox.post(client, "/users/get_account", result)
   end
 
+  @spec get_account_to_struct(binary, Client) :: Map
   def get_account_to_struct(id, client) do
     to_struct(%ElixirDropbox.Account{}, get_account(id, client))
   end

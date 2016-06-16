@@ -17,4 +17,11 @@ defmodule ElixirDropboxTest do
     space_usage = ElixirDropbox.Users.get_space_usage(state[:client])
     assert space_usage["used"] != nil
   end
+
+  test "get metadata", state do
+  	folder = ElixirDropbox.Files.create_folder(state[:client], "/test")
+  	metadata = ElixirDropbox.Files.get_metadata(state[:client], "/test")
+  	assert metadata[".tag"] == "folder"
+  	assert folder["id"] == metadata["id"]
+  end
 end

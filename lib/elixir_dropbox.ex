@@ -32,7 +32,7 @@ defmodule ElixirDropbox do
   end
 
   def headers(client) do
-    %{ "Authorization" => "Bearer #{client.token}" }
+    %{ "Authorization" => "Bearer #{client.access_token}" }
   end
 
   def json_headers do

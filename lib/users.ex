@@ -1,13 +1,5 @@
 defmodule ElixirDropbox.Users do
 
-  def get_usage(client) do
-    ElixirDropbox.post client, "/users/get_space_usage", "null"
-  end
-
-  def get_usage_to_struct do
-    
-  end
-
   def get_account(id, client) do
     body = %{"account_id" => id}
     result = to_string(Poison.Encoder.encode(body, []))

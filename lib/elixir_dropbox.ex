@@ -4,17 +4,9 @@ defmodule ElixirDropbox do
   @dropbox_url Application.get_env(:elixir_dropbox, :dropbox_url)
   @access_token [{"Authorization", "Bearer #{Application.get_env(:elixir_dropbox, :access_token)}"}]
 
-  def process_url(url) do
-    api_url <> url
-  end
-
-  defp api_url do
-    "#{@dropbox_url}"
-  end
-
-  def post(client, path, body \\ "") do
-    headers = %{ "Content-Type" => "application/json"}
-    do_request(client, :post, path, body, headers)
+  def post(client, url, body \\ "") do
+    headers = json_headers
+    post_request(client, "#{base_url}#{url}", body, headers)
   end
 
   def process_response(%HTTPoison.Response{status_code: 200, body: body}), do: Poison.decode!(body)
@@ -26,23 +18,28 @@ defmodule ElixirDropbox do
     end
   end
 
-  def do_request(client, method, url, body \\ "", headers \\ [], options \\ []) do
-      headers = Map.merge(headers, headers(client))
-      request!(method, url, body, headers, options) |> process_response
+  def post_request(client, url, body, headers) do
+    headers = Map.merge(headers, headers(client))
+    HTTPoison.post!(url, body, headers) |> process_response
   end
 
-  # updates upload
+  def base_url do
+    "https://api.dropboxapi.com/2/"
+  end  
 
-   def upload_url do
-     "https://content.dropboxapi.com/2/"
-   end
+  def upload_url do
+    "https://content.dropboxapi.com/2/"
+  end
 
-   def headers(client) do
+  def headers(client) do
     %{ "Authorization" => "Bearer #{client.token}" }
-   end
+  end
 
-   def upload_request(client, url, data, headers) do
-    headers = Map.merge(headers, headers(client))
-    HTTPoison.post!("#{upload_url}#{url}", {:file, data}, headers) |> process_response
+  def json_headers do
+    %{ "Content-Type" => "application/json" }
+  end
+  
+  def upload_request(client, url, data, headers) do
+    post_request(client, "#{upload_url}#{url}", {:file, data}, headers)
   end
 end

@@ -29,6 +29,12 @@ defmodule ElixirDropbox.Files do
     result = to_string(Poison.Encoder.encode(body, []))
     ElixirDropbox.post(client, "/files/restore", result) 
   end
+  
+  def list_revisions(client, path, limit \\ 10) do
+    body = %{"path" => path, "limit" => limit}
+    result = to_string(Poison.Encoder.encode(body, []))
+    ElixirDropbox.post(client, "/files/list_revisions", result) 
+  end
 
   def upload(client, path, file, mode \\ "add", autorename \\ true, mute \\ false) do
     dropbox_headers = %{
@@ -47,6 +53,24 @@ defmodule ElixirDropbox.Files do
     }
     headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers) }
     ElixirDropbox.download_request(client, "files/download", [], headers)
+  end
+
+  def get_thumbnail(client, path, format \\ "jpeg", size \\ "w64h64") do
+    dropbox_headers = %{
+      :path => path,
+      :format => format,
+      :size => size
+    }
+    headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers) }
+    ElixirDropbox.download_request(client, "files/get_thumbnail", [], headers)
+  end
+  
+  def get_preview(client, path) do
+    dropbox_headers = %{
+      :path => path
+    }
+    headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers) }
+    ElixirDropbox.download_request(client, "files/get_preview", [], headers)
   end
 
   def get_metadata(client, path, include_media_info \\ false) do

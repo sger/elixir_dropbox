@@ -38,8 +38,25 @@ defmodule ElixirDropbox do
   def json_headers do
     %{ "Content-Type" => "application/json" }
   end
+
+  def get_header(headers, key) do
+    headers
+    |> Enum.filter(fn({k, _}) -> k == key end)
+    |> hd
+    |> elem(1)
+  end
   
   def upload_request(client, url, data, headers) do
     post_request(client, "#{upload_url}#{url}", {:file, data}, headers)
+  end
+
+  def download_request(client, url, data, headers) do
+    headers = Map.merge(headers, headers(client))
+    response = HTTPoison.post!("#{upload_url}#{url}", data, headers)
+    case response do
+      {:ok, %{body: body, headers: headers, status_code: 200}} ->
+        {:ok, %{file: body, headers: get_header(headers, "dropbox_api_result") |> Poison.decode}}
+      _-> response
+    end
   end
 end

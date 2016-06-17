@@ -24,6 +24,12 @@ defmodule ElixirDropbox.Files do
     ElixirDropbox.post(client, "/files/move", result) 
   end
 
+  def restore(client, path, rev) do
+    body = %{"path" => path, "rev" => rev}
+    result = to_string(Poison.Encoder.encode(body, []))
+    ElixirDropbox.post(client, "/files/restore", result) 
+  end
+
   def upload(client, path, file, mode \\ "add", autorename \\ true, mute \\ false) do
     dropbox_headers = %{
       :path => path,
@@ -33,6 +39,14 @@ defmodule ElixirDropbox.Files do
     }
     headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers), "Content-Type" => "application/octet-stream" }
     ElixirDropbox.upload_request(client, "files/upload", file, headers)
+  end
+
+  def download(client, path) do
+    dropbox_headers = %{
+      :path => path
+    }
+    headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers) }
+    ElixirDropbox.download_request(client, "files/download", [], headers)
   end
 
   def get_metadata(client, path, include_media_info \\ false) do

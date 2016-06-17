@@ -1,6 +1,6 @@
 # ElixirDropbox
 
-**TODO: Add description**
+ Simple Dropbox v2 client for Elixir.
 
 ## Installation
 
@@ -17,3 +17,13 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         def application do
           [applications: [:elixir_dropbox]]
         end
+
+## Testing
+```
+$ export DROPBOX_ACCESS_TOKEN=
+$ mix test
+```
+
+# License
+
+MIT

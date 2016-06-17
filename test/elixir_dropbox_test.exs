@@ -24,4 +24,15 @@ defmodule ElixirDropboxTest do
   	assert metadata[".tag"] == "folder"
   	assert folder["id"] == metadata["id"]
   end
+
+  test "create folder", state do
+    folder = ElixirDropbox.Files.create_folder(state[:client], "/hello_world")
+    assert folder["name"] == "hello_world"
+  end
+  
+  test "delete folder", state do
+    folder = ElixirDropbox.Files.create_folder(state[:client], "/deleted_folder")
+    deleted_folder = ElixirDropbox.Files.delete_folder(state[:client], "/deleted_folder")
+    assert deleted_folder["name"] == "deleted_folder"
+  end
 end

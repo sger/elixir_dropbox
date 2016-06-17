@@ -33,6 +33,12 @@ defmodule ElixirDropbox.Users do
     ElixirDropbox.post(client, "/users/get_space_usage", "null")
   end
 
+  def get_account_batch(client, account_ids) do
+    body = %{"account_ids" => account_ids}
+    result = to_string(Poison.Encoder.encode(body, []))
+    ElixirDropbox.post(client, "/users/get_account_batch", result)
+  end
+
     def to_struct(kind, attrs) do
       struct = struct(kind)
       Enum.reduce Map.to_list(struct), struct, fn {k, _}, acc ->

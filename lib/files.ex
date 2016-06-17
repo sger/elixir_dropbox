@@ -10,7 +10,19 @@ defmodule ElixirDropbox.Files do
     body = %{"path" => path}
     result = to_string(Poison.Encoder.encode(body, []))
     ElixirDropbox.post(client, "/files/delete", result) 
+  end
+
+  def copy(client, from_path, to_path) do
+    body = %{"from_path" => from_path, "to_path" => to_path}
+    result = to_string(Poison.Encoder.encode(body, []))
+    ElixirDropbox.post(client, "/files/copy", result) 
   end  
+
+  def move(client, from_path, to_path) do
+    body = %{"from_path" => from_path, "to_path" => to_path}
+    result = to_string(Poison.Encoder.encode(body, []))
+    ElixirDropbox.post(client, "/files/move", result) 
+  end
 
   def upload(client, path, file, mode \\ "add", autorename \\ true, mute \\ false) do
     dropbox_headers = %{

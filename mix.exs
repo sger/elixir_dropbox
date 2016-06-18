@@ -1,10 +1,17 @@
 defmodule ElixirDropbox.Mixfile do
   use Mix.Project
+  
+  @description """
+    Simple Elixir wrapper for the Dropbox v2 API
+  """
 
   def project do
     [app: :elixir_dropbox,
      version: "0.0.1",
      elixir: "~> 1.2",
+     name: "ElixirDropbox",
+     description: @description,
+     package: package,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -34,5 +41,11 @@ defmodule ElixirDropbox.Mixfile do
       { :inch_ex, "~> 0.5", only: [:dev, :test] },
       { :json, "~> 0.3.0" }
     ]
+  end
+
+  defp package do
+    [mainteners: ["Spiros Gerokostas"],
+     licences: ["MIT"],
+     links: %{ "GitHub" => "https://github.com/sger/elixir_dropbox" }]
   end
 end

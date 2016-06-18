@@ -1,5 +1,5 @@
 defmodule ElixirDropbox.Users do
-  
+
   @doc """
   Get user account by account_id
 
@@ -18,7 +18,7 @@ defmodule ElixirDropbox.Users do
 
   @spec get_account_to_struct(Client, binary) :: Map
   def get_account_to_struct(client, id) do
-    to_struct(%ElixirDropbox.Account{}, get_account(client, id))
+    ElixirDropbox.Utils.to_struct(%ElixirDropbox.Account{}, get_account(client, id))
   end
 
   def current_account(client) do
@@ -26,7 +26,7 @@ defmodule ElixirDropbox.Users do
   end
 
   def current_account_to_struct(client) do 
-    to_struct(%ElixirDropbox.Account{}, current_account(client))
+    ElixirDropbox.Utils.to_struct(%ElixirDropbox.Account{}, current_account(client))
   end
 
   def get_space_usage(client) do
@@ -38,16 +38,5 @@ defmodule ElixirDropbox.Users do
     result = to_string(Poison.Encoder.encode(body, []))
     ElixirDropbox.post(client, "/users/get_account_batch", result)
   end
-
-    def to_struct(kind, attrs) do
-      struct = struct(kind)
-      Enum.reduce Map.to_list(struct), struct, fn {k, _}, acc ->
-        case Map.fetch(attrs, Atom.to_string(k)) do
-          {:ok, v} -> %{acc | k => v}
-          :error -> acc
-        end
-      end
-    end
 end
-
 

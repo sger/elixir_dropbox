@@ -14,7 +14,7 @@ defmodule ElixirDropbox do
   def process_response(%HTTPoison.Response{status_code: status_code, body: body }) do
     cond do
     status_code in 400..599 ->
-      {:error, {{:http_status, status_code}, body}}
+      {:error, {{:http_status, status_code}, JSON.decode(body)}}
     end
   end
 

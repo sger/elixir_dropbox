@@ -63,7 +63,7 @@ defmodule ElixirDropbox.Users do
  
   More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_account_batch
   """
-  @spec get_account_batch(Client, account_ids) :: Map
+  @spec get_account_batch(Client, binary) :: Map
   def get_account_batch(client, account_ids) do
     body = %{"account_ids" => account_ids}
     result = to_string(Poison.Encoder.encode(body, []))

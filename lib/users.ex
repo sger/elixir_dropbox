@@ -5,7 +5,7 @@ defmodule ElixirDropbox.Users do
 
   ## Example
 
-    ElixirDropbox.Users dbid:AABYkM-pR8ynnNPIVBjMTPRrIyuT4bgtest, client  
+    ElixirDropbox.Users client, "dbid:AABYkM-pR8ynnNPIVBjMTPRrIyuT4bgtest"  
 
   More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account
   """  
@@ -20,7 +20,16 @@ defmodule ElixirDropbox.Users do
   def get_account_to_struct(client, id) do
     ElixirDropbox.Utils.to_struct(%ElixirDropbox.Account{}, get_account(client, id))
   end
+  
+  @doc """
+  Get user current account
 
+  ## Example 
+      
+    ElixirDropbox.Users.current_account client
+ 
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account 
+  """
   def current_account(client) do
     ElixirDropbox.post(client, "/users/get_current_account", "null")
   end
@@ -28,11 +37,29 @@ defmodule ElixirDropbox.Users do
   def current_account_to_struct(client) do 
     ElixirDropbox.Utils.to_struct(%ElixirDropbox.Account{}, current_account(client))
   end
+  
+  @doc """
+  Get user space usage
 
+  ## Example 
+      
+    ElixirDropbox.Users.get_space_usage client
+ 
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_space_usage
+  """
   def get_space_usage(client) do
     ElixirDropbox.post(client, "/users/get_space_usage", "null")
   end
+  
+  @doc """
+  Get user account batch by account_ids.List of user account identifiers
 
+  ## Example 
+      
+    ElixirDropbox.Users.get_account_batch client,  ["12345", "6789"]
+ 
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_account_batch
+  """
   def get_account_batch(client, account_ids) do
     body = %{"account_ids" => account_ids}
     result = to_string(Poison.Encoder.encode(body, []))

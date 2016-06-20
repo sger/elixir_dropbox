@@ -72,5 +72,12 @@ defmodule ElixirDropbox.Users do
     result = to_string(Poison.Encoder.encode(body, []))
     ElixirDropbox.post(client, "/users/get_account_batch", result)
   end
+
+  @spec get_account_batch_to_struct(Client, binary) :: Account
+  def get_account_batch_to_struct(client, account_ids) do 
+    map = Enum.reduce get_account_batch(client, account_ids), %{}, fn x, acc ->
+      Map.put(acc, %ElixirDropbox.Account{}, x)
+    end
+  end
 end
 

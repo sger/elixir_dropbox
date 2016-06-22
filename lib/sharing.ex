@@ -1,6 +1,6 @@
 defmodule ElixirDropbox.Sharing do
  @doc """
-  Create shared link
+  Create shared link returns map
 
   ## Example
 
@@ -15,6 +15,13 @@ defmodule ElixirDropbox.Sharing do
     ElixirDropbox.post(client, "/sharing/create_shared_link", result)
   end
 
+ @doc """
+  Create shared link returns SharedLink struct
+
+  ## Example
+
+    ElixirDropbox.Sharing.create_shared_link_to_struct client, "/Path"
+  """  
   @spec create_shared_link_to_struct(Client, binary) :: SharedLink
   def create_shared_link_to_struct(client, path) do
     ElixirDropbox.Utils.to_struct(%ElixirDropbox.SharedLink{}, create_shared_link(client, path))

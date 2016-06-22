@@ -1,5 +1,6 @@
 defmodule ElixirDropbox.Error do
 	defstruct status_code: nil,
-                  body: nil
+                  summary: nil,
+                  status: nil
 end
 

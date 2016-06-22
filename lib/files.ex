@@ -6,6 +6,10 @@ defmodule ElixirDropbox.Files do
     ElixirDropbox.post(client, "/files/create_folder", result) 
   end
 
+  def create_folder_to_struct(client, path) do
+    ElixirDropbox.Utils.to_struct(%ElixirDropbox.Folder{}, create_folder(client, path))
+  end
+  
   def delete_folder(client, path) do 
     body = %{"path" => path}
     result = to_string(Poison.Encoder.encode(body, []))

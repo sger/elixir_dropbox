@@ -28,9 +28,7 @@ defmodule ElixirDropbox.Sharing do
     if is_map(response) do 
      ElixirDropbox.Utils.to_struct(%ElixirDropbox.SharedLink{}, response)
     else 
-     response
-    end
-    
-    #     ElixirDropbox.Utils.to_struct(%ElixirDropbox.SharedLink{}, create_shared_link(client, path))
+      elem(response, 1)
+    end  
   end
 end

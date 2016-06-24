@@ -1,6 +1,16 @@
 # ElixirDropbox
 
  Simple Dropbox v2 client for Elixir.
+ work in progress
+
+## Usage
+
+```sh
+$ iex -S mix
+$ client = ElixirDropbox.Client.new("TOKEN")
+$ ElixirDropbox.Users.current_account(client)
+$ ElixirDropbox.Users.current_account_to_struct(client)
+```
 
 ## Installation
 
@@ -19,7 +29,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         end
 
 ## Testing
-```
+```sh
 $ export DROPBOX_ACCESS_TOKEN=
 $ mix test
 ```

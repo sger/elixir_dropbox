@@ -24,14 +24,6 @@ defmodule ElixirDropbox.Mixfile do
     [applications: [:logger, :httpoison, :exjsx]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
   # Type "mix help deps" for more examples and options
   defp deps do
     [
@@ -44,8 +36,8 @@ defmodule ElixirDropbox.Mixfile do
   end
 
   defp package do
-    [mainteners: ["Spiros Gerokostas"],
-     licences: ["MIT"],
+    [maintainers: ["Spiros Gerokostas"],
+     licenses: ["MIT"],
      links: %{ "GitHub" => "https://github.com/sger/elixir_dropbox" }]
   end
 end

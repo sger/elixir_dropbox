@@ -16,9 +16,6 @@ defmodule ElixirDropbox do
   def upload_response(%HTTPoison.Response{status_code: status_code, body: body }) do
     cond do
     status_code in 400..599 ->
-    #          %ElixirDropbox.Error{status: elem(JSON.decode(body), 0), status_code: status_code, summary: elem(JSON.decode(body), 1)}
-    #        {:error, {{:http_status, status_code}, JSON.decode(body)}}
-    #       {:error, {{:status_code, status_code}, JSON.decode(body)}}
       {{:status_code, status_code}, JSON.decode(body)}
     end
   end

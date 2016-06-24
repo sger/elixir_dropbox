@@ -7,7 +7,12 @@ defmodule ElixirDropbox.Files do
   end
 
   def create_folder_to_struct(client, path) do
-    ElixirDropbox.Utils.to_struct(%ElixirDropbox.Folder{}, create_folder(client, path))
+    response = create_folder(client, path)
+    if is_map(response) do
+      ElixirDropbox.Utils.to_struct(%ElixirDropbox.Folder{}, response)
+    else
+      elem(response, 1) 
+    end 
   end
   
   def delete_folder(client, path) do 
@@ -15,7 +20,16 @@ defmodule ElixirDropbox.Files do
     result = to_string(Poison.Encoder.encode(body, []))
     ElixirDropbox.post(client, "/files/delete", result) 
   end
-
+ 
+  def delete_folder_to_struct(client, path) do
+    response = delete_folder(client, path)
+    if is_map(response) do
+      ElixirDropbox.Utils.to_struct(%ElixirDropbox.Folder{}, response)
+    else
+      elem(response, 1)
+    end
+  end 
+  
   def copy(client, from_path, to_path) do
     body = %{"from_path" => from_path, "to_path" => to_path}
     result = to_string(Poison.Encoder.encode(body, []))

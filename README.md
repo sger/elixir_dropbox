@@ -34,6 +34,10 @@ $ export DROPBOX_ACCESS_TOKEN=
 $ mix test
 ```
 
+## TODO
+- [] adding structs for responses
+- [] documentation
+
 # License
 
 MIT

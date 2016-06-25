@@ -31,7 +31,8 @@ defmodule ElixirDropbox.Mixfile do
       { :poison, "~> 1.5" },
       { :exjsx, "~> 3.2" },
       { :inch_ex, "~> 0.5", only: [:dev, :test] },
-      { :json, "~> 0.3.0" }
+      { :json, "~> 0.3.0" },
+      { :ex_doc, github: "elixir-lang/ex_doc" } 
     ]
   end
 

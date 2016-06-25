@@ -29,10 +29,15 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         end
 
 ## Testing
+
 ```sh
 $ export DROPBOX_ACCESS_TOKEN=
 $ mix test
 ```
+
+## Documentation
+
+[https://hexdocs.pm/elixir_dropbox/0.0.2](https://hexdocs.pm/elixir_dropbox/0.0.1)
 
 ## TODO
 - [] adding structs for responses

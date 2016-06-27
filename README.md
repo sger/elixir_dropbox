@@ -10,6 +10,8 @@ $ iex -S mix
 $ client = ElixirDropbox.Client.new("TOKEN")
 $ ElixirDropbox.Users.current_account(client)
 $ ElixirDropbox.Users.current_account_to_struct(client)
+$ ElixirDropbox.Files.create_folder(client, "/test")
+$ ElixirDropbox.Files.create_folder_to_struct(client, "/test")
 ```
 
 ## Installation

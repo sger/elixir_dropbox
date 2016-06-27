@@ -1,11 +1,30 @@
 defmodule ElixirDropbox.Files do
+ @doc """
+  Create folder returns map
 
+  ## Example
+
+    ElixirDropbox.Files.create_folder client, "/Path"
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-create_folder
+  """  
+  @spec create_folder(Client, binary) :: Map
   def create_folder(client, path) do
     body = %{"path" => path}
     result = to_string(Poison.Encoder.encode(body, []))
     ElixirDropbox.post(client, "/files/create_folder", result) 
   end
 
+ @doc """
+  Create folder returns Folder struct
+
+  ## Example
+
+    ElixirDropbox.Files.create_folder_to_struct client, "/Path"
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-create_folder
+  """  
+  @spec create_folder_to_struct(Client, binary) :: Map
   def create_folder_to_struct(client, path) do
     response = create_folder(client, path)
     if is_map(response) do

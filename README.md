@@ -42,8 +42,8 @@ $ mix test
 [https://hexdocs.pm/elixir_dropbox/0.0.2](https://hexdocs.pm/elixir_dropbox/0.0.1)
 
 ## TODO
-- [] adding structs for responses
-- [] documentation
+- [ ] adding structs for responses
+- [ ] documentation
 
 # License
 

@@ -7,11 +7,16 @@
 
 ```sh
 $ iex -S mix
-$ client = ElixirDropbox.Client.new("TOKEN")
-$ ElixirDropbox.Users.current_account(client)
-$ ElixirDropbox.Users.current_account_to_struct(client)
-$ ElixirDropbox.Files.create_folder(client, "/test")
-$ ElixirDropbox.Files.create_folder_to_struct(client, "/test")
+Erlang/OTP 18 [erts-7.3] [source] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
+
+Interactive Elixir (1.3.0) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> client = ElixirDropbox.Client.new("TOKEN")
+%ElixirDropbox.Client{access_token: "TOKEN",
+ client_id: nil}
+iex(2)> ElixirDropbox.Users.current_account(client)
+iex(2)> ElixirDropbox.Users.current_account_to_struct(client)
+iex(3)> ElixirDropbox.Files.create_folder(client, "/test")
+iex(4)> ElixirDropbox.Files.create_folder_to_struct(client, "/test")
 ```
 
 ## Installation

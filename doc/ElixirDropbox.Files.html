@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.12.0">
-    <title>ElixirDropbox.Files – ElixirDropbox v0.0.2</title>
+    <title>ElixirDropbox.Files – ElixirDropbox v0.0.3</title>
     <link rel="stylesheet" href="dist/app-88251e7c81.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/elixir_dropbox/ElixirDropbox.Files.html" />
@@ -27,7 +27,7 @@
         ElixirDropbox
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.2
+        v0.0.3
       </h2>
     </div>
     
@@ -60,7 +60,7 @@
 
 
       <h1>
-        <small class="visible-xs">ElixirDropbox v0.0.2</small>
+        <small class="visible-xs">ElixirDropbox v0.0.3</small>
         ElixirDropbox.Files
         
         
@@ -94,11 +94,17 @@
     <a href="#create_folder/2">create_folder(client, path)</a>
   </div>
   
+    <div class="summary-synopsis"><p>Create folder returns map</p>
+</div>
+  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#create_folder_to_struct/2">create_folder_to_struct(client, path)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Create folder returns Folder struct</p>
+</div>
   
 </div>
 <div class="summary-row">
@@ -206,8 +212,21 @@
     
   </div>
   
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">create_folder(Client, binary) :: Map</code></pre>
+        
+      </div>
+    </div>
+  
   <section class="docstring">
-    
+    <p>Create folder returns map</p>
+<h2>Example</h2>
+<p>  ElixirDropbox.Files.create_folder client, “/Path”</p>
+<p>More info at: <a href="https://www.dropbox.com/developers/documentation/http/documentation#files-create_folder">https://www.dropbox.com/developers/documentation/http/documentation#files-create_folder</a></p>
+
   </section>
 </div>
 <div class="detail" id="create_folder_to_struct/2">
@@ -220,8 +239,21 @@
     
   </div>
   
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">create_folder_to_struct(Client, binary) :: Map</code></pre>
+        
+      </div>
+    </div>
+  
   <section class="docstring">
-    
+    <p>Create folder returns Folder struct</p>
+<h2>Example</h2>
+<p>  ElixirDropbox.Files.create_folder_to_struct client, “/Path”</p>
+<p>More info at: <a href="https://www.dropbox.com/developers/documentation/http/documentation#files-create_folder">https://www.dropbox.com/developers/documentation/http/documentation#files-create_folder</a></p>
+
   </section>
 </div>
 <div class="detail" id="delete_folder/2">

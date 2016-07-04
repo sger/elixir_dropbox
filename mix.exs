@@ -7,7 +7,7 @@ defmodule ElixirDropbox.Mixfile do
 
   def project do
     [app: :elixir_dropbox,
-     version: "0.0.2",
+     version: "0.0.3",
      elixir: "~> 1.2",
      name: "ElixirDropbox",
      description: @description,
@@ -21,7 +21,7 @@ defmodule ElixirDropbox.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpoison, :exjsx]]
+    [applications: [:logger, :httpoison]]
   end
 
   # Type "mix help deps" for more examples and options

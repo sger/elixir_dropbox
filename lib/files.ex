@@ -34,6 +34,15 @@ defmodule ElixirDropbox.Files do
     end 
   end
   
+ @doc """
+  Create folder returns map
+
+   ## Example
+
+    ElixirDropbox.Files.delete_folder client, "/Path"
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-delete
+ """
   def delete_folder(client, path) do 
     body = %{"path" => path}
     result = to_string(Poison.Encoder.encode(body, []))

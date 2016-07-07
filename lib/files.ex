@@ -35,7 +35,7 @@ defmodule ElixirDropbox.Files do
   end
   
  @doc """
-  Create folder returns map
+  Delete folder returns map
 
    ## Example
 
@@ -48,7 +48,16 @@ defmodule ElixirDropbox.Files do
     result = to_string(Poison.Encoder.encode(body, []))
     ElixirDropbox.post(client, "/files/delete", result) 
   end
- 
+
+ @doc """
+  Delete folder returns Folder struct
+
+  ## Example
+
+    ElixirDropbox.Files.delete_folder_to_struct client, "/Path"
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-delete
+  """  
   def delete_folder_to_struct(client, path) do
     response = delete_folder(client, path)
     if is_map(response) do

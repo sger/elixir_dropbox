@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Users do
+  import ElixirDropbox
+  import ElixirDropbox.Utils
 
   @doc """
   Get user account by account_id
@@ -13,18 +15,17 @@ defmodule ElixirDropbox.Users do
   def get_account(client, id) do
     body = %{"account_id" => id}
     result = to_string(Poison.Encoder.encode(body, []))
-    ElixirDropbox.post(client, "/users/get_account", result)
+    post(client, "/users/get_account", result)
   end
 
   @spec get_account_to_struct(Client, binary) :: Account
   def get_account_to_struct(client, id) do
     response = get_account(client, id) 
     if is_map(response) do 
-     ElixirDropbox.Utils.to_struct(%ElixirDropbox.Account{}, response)
+      to_struct(%ElixirDropbox.Account{}, response)
     else 
       elem(response, 1)
     end  
-#ElixirDropbox.Utils.to_struct(%ElixirDropbox.Account{}, get_account(client, id))
   end
   
   @doc """
@@ -38,12 +39,12 @@ defmodule ElixirDropbox.Users do
   """
   @spec current_account(Client) :: Map
   def current_account(client) do
-    ElixirDropbox.post(client, "/users/get_current_account", "null")
+    post(client, "/users/get_current_account", "null")
   end
 
   @spec current_account_to_struct(Client) :: Account
   def current_account_to_struct(client) do 
-    ElixirDropbox.Utils.to_struct(%ElixirDropbox.Account{}, current_account(client))
+    to_struct(%ElixirDropbox.Account{}, current_account(client))
   end
   
   @doc """
@@ -57,12 +58,12 @@ defmodule ElixirDropbox.Users do
   """
   @spec get_space_usage(Client) :: Map
   def get_space_usage(client) do
-    ElixirDropbox.post(client, "/users/get_space_usage", "null")
+    post(client, "/users/get_space_usage", "null")
   end
  
- def get_space_usage_to_struct(client) do
-  ElixirDropbox.Utils.to_struct(%ElixirDropbox.SpaceUsage{}, get_space_usage(client))
- end 
+  def get_space_usage_to_struct(client) do
+   to_struct(%ElixirDropbox.SpaceUsage{}, get_space_usage(client))
+  end 
   @doc """
   Get user account batch by account_ids.List of user account identifiers
 
@@ -76,7 +77,7 @@ defmodule ElixirDropbox.Users do
   def get_account_batch(client, account_ids) do
     body = %{"account_ids" => account_ids}
     result = to_string(Poison.Encoder.encode(body, []))
-    ElixirDropbox.post(client, "/users/get_account_batch", result)
+     post(client, "/users/get_account_batch", result)
   end
 end
 

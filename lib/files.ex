@@ -52,7 +52,7 @@ defmodule ElixirDropbox.Files do
     post(client, "/files/delete", result) 
   end
 
- @doc """
+  @doc """
   Delete folder returns Folder struct
 
   ## Example
@@ -70,12 +70,32 @@ defmodule ElixirDropbox.Files do
     end
   end 
   
+  @doc """
+  Copy a file or folder to a different location in the user's Dropbox.
+  If the source path is a folder all its contents will be copied. 
+  
+  ## Example
+
+    ElixirDropbox.Files.copy(client, "/Temp/first", "/Tmp/second")
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-copy
+  """   
   def copy(client, from_path, to_path) do
     body = %{"from_path" => from_path, "to_path" => to_path}
     result = to_string(Poison.Encoder.encode(body, []))
     post(client, "/files/copy", result) 
   end  
 
+  @doc """
+  Move a file or folder to a different location in the user's Dropbox.
+  If the source path is a folder all its contents will be moved.
+  
+  ## Example
+    
+    ElixirDropbox.Files.move(client, "/Homework/math", "/Homework/algebra")
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-move
+  """
   def move(client, from_path, to_path) do
     body = %{"from_path" => from_path, "to_path" => to_path}
     result = to_string(Poison.Encoder.encode(body, []))

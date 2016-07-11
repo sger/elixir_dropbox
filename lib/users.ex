@@ -62,8 +62,9 @@ defmodule ElixirDropbox.Users do
   end
  
   def get_space_usage_to_struct(client) do
-   to_struct(%ElixirDropbox.SpaceUsage{}, get_space_usage(client))
+    to_struct(%ElixirDropbox.SpaceUsage{}, get_space_usage(client))
   end 
+
   @doc """
   Get user account batch by account_ids.List of user account identifiers
 
@@ -77,7 +78,7 @@ defmodule ElixirDropbox.Users do
   def get_account_batch(client, account_ids) do
     body = %{"account_ids" => account_ids}
     result = to_string(Poison.Encoder.encode(body, []))
-     post(client, "/users/get_account_batch", result)
+    post(client, "/users/get_account_batch", result)
   end
 end
 

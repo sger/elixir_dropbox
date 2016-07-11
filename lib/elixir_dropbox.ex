@@ -1,7 +1,8 @@
 defmodule ElixirDropbox do
+  @moduledoc """
+  ElixirDropbox is a wrapper for Dropbox API V2 
+  """
   use HTTPoison.Base
-
-  @type response :: {any}
 
   @base_url Application.get_env(:elixir_dropbox, :base_url)
   @upload_url Application.get_env(:elixir_dropbox, :upload_url)

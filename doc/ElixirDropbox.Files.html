@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.12.0">
-    <title>ElixirDropbox.Files – ElixirDropbox v0.0.3</title>
+    <title>ElixirDropbox.Files – ElixirDropbox v0.0.4</title>
     <link rel="stylesheet" href="dist/app-88251e7c81.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/elixir_dropbox/ElixirDropbox.Files.html" />
@@ -27,7 +27,7 @@
         ElixirDropbox
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.3
+        v0.0.4
       </h2>
     </div>
     
@@ -60,7 +60,7 @@
 
 
       <h1>
-        <small class="visible-xs">ElixirDropbox v0.0.3</small>
+        <small class="visible-xs">ElixirDropbox v0.0.4</small>
         ElixirDropbox.Files
         
         
@@ -88,6 +88,10 @@
     <a href="#copy/3">copy(client, from_path, to_path)</a>
   </div>
   
+    <div class="summary-synopsis"><p>Copy a file or folder to a different location in the user’s Dropbox.
+If the source path is a folder all its contents will be copied</p>
+</div>
+  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -112,11 +116,17 @@
     <a href="#delete_folder/2">delete_folder(client, path)</a>
   </div>
   
+    <div class="summary-synopsis"><p>Delete folder returns map</p>
+</div>
+  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#delete_folder_to_struct/2">delete_folder_to_struct(client, path)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Delete folder returns Folder struct</p>
+</div>
   
 </div>
 <div class="summary-row">
@@ -153,6 +163,10 @@
   <div class="summary-signature">
     <a href="#move/3">move(client, from_path, to_path)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Move a file or folder to a different location in the user’s Dropbox.
+If the source path is a folder all its contents will be moved</p>
+</div>
   
 </div>
 <div class="summary-row">
@@ -199,7 +213,12 @@
   </div>
   
   <section class="docstring">
-    
+    <p>Copy a file or folder to a different location in the user’s Dropbox.
+If the source path is a folder all its contents will be copied. </p>
+<h2>Example</h2>
+<p>  ElixirDropbox.Files.copy(client, “/Temp/first”, “/Tmp/second”)</p>
+<p>More info at: <a href="https://www.dropbox.com/developers/documentation/http/documentation#files-copy">https://www.dropbox.com/developers/documentation/http/documentation#files-copy</a></p>
+
   </section>
 </div>
 <div class="detail" id="create_folder/2">
@@ -267,7 +286,11 @@
   </div>
   
   <section class="docstring">
-    
+    <p> Delete folder returns map</p>
+<p>  ## Example</p>
+<p>   ElixirDropbox.Files.delete_folder client, “/Path”</p>
+<p> More info at: <a href="https://www.dropbox.com/developers/documentation/http/documentation#files-delete">https://www.dropbox.com/developers/documentation/http/documentation#files-delete</a></p>
+
   </section>
 </div>
 <div class="detail" id="delete_folder_to_struct/2">
@@ -281,7 +304,11 @@
   </div>
   
   <section class="docstring">
-    
+    <p>Delete folder returns Folder struct</p>
+<h2>Example</h2>
+<p>  ElixirDropbox.Files.delete_folder_to_struct client, “/Path”</p>
+<p>More info at: <a href="https://www.dropbox.com/developers/documentation/http/documentation#files-delete">https://www.dropbox.com/developers/documentation/http/documentation#files-delete</a></p>
+
   </section>
 </div>
 <div class="detail" id="download/2">
@@ -365,7 +392,12 @@
   </div>
   
   <section class="docstring">
-    
+    <p>Move a file or folder to a different location in the user’s Dropbox.
+If the source path is a folder all its contents will be moved.</p>
+<h2>Example</h2>
+<p>  ElixirDropbox.Files.move(client, “/Homework/math”, “/Homework/algebra”)</p>
+<p>More info at: <a href="https://www.dropbox.com/developers/documentation/http/documentation#files-move">https://www.dropbox.com/developers/documentation/http/documentation#files-move</a></p>
+
   </section>
 </div>
 <div class="detail" id="restore/3">

@@ -14,9 +14,9 @@ iex(1)> client = ElixirDropbox.Client.new("TOKEN")
 %ElixirDropbox.Client{access_token: "TOKEN",
  client_id: nil}
 iex(2)> ElixirDropbox.Users.current_account(client)
-iex(2)> ElixirDropbox.Users.current_account_to_struct(client)
-iex(3)> ElixirDropbox.Files.create_folder(client, "/test")
-iex(4)> ElixirDropbox.Files.create_folder_to_struct(client, "/test")
+iex(3)> ElixirDropbox.Users.current_account_to_struct(client)
+iex(4)> ElixirDropbox.Files.create_folder(client, "/test")
+iex(5)> ElixirDropbox.Files.create_folder_to_struct(client, "/test")
 ```
 
 ## Installation

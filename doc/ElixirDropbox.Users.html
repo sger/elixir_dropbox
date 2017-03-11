@@ -4,15 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.12.0">
-    <title>ElixirDropbox.Users – ElixirDropbox v0.0.4</title>
-    <link rel="stylesheet" href="dist/app-88251e7c81.css" />
+    <meta name="generator" content="ExDoc v0.15.0">
+    <title>ElixirDropbox.Users – ElixirDropbox v0.0.5</title>
+    <link rel="stylesheet" href="dist/app-f7824c48e6.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/elixir_dropbox/ElixirDropbox.Users.html" />
     
-    <script src="dist/sidebar_items.js"></script>
+    <script src="dist/sidebar_items-02823a97b9.js"></script>
   </head>
   <body data-type="modules">
+    <script>if(localStorage.getItem('night-mode')) document.body.className += ' night-mode';</script>
 
     <div class="main">
 <button class="sidebar-toggle">
@@ -27,7 +28,7 @@
         ElixirDropbox
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.4
+        v0.0.5
       </h2>
     </div>
     
@@ -49,9 +50,8 @@
 
     
   </ul>
-
+  <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
-  <div class="sidebar-noResults"></div>
 </section>
 
 <section class="content">
@@ -60,7 +60,7 @@
 
 
       <h1>
-        <small class="visible-xs">ElixirDropbox v0.0.4</small>
+        <small class="visible-xs">ElixirDropbox v0.0.5</small>
         ElixirDropbox.Users
         
         
@@ -143,8 +143,6 @@
 
           
 
-          
-
         </section>
       
 
@@ -159,6 +157,7 @@
             Functions
           </h1>
           <div class="detail" id="current_account/1">
+  
   <div class="detail-header">
     <a href="#current_account/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
@@ -166,26 +165,28 @@
     <span class="signature">current_account(client)</span>
     
     
-  </div>
-  
-    <div class="specs">
-      <h4 class="specs-title">Specs</h4>
-      <div class="specs-list">
+    
+      <div class="specs">
         
-          <pre><code class="elixir">current_account(Client) :: Map</code></pre>
+          <pre>current_account(Client) :: Map</pre>
         
       </div>
-    </div>
-  
+    
+  </div>
   <section class="docstring">
     <p>Get user current account</p>
-<h2>Example</h2>
+<h2 id="current_account/1-example" class="section-heading">
+  <a href="#current_account/1-example" class="hover-link"><i class="icon-link"></i></a>
+  Example
+</h2>
+
 <p>  ElixirDropbox.Users.current_account client</p>
-<p>More info at: <a href="https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account">https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account</a> </p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account </p>
 
   </section>
 </div>
 <div class="detail" id="current_account_to_struct/1">
+  
   <div class="detail-header">
     <a href="#current_account_to_struct/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
@@ -193,22 +194,20 @@
     <span class="signature">current_account_to_struct(client)</span>
     
     
-  </div>
-  
-    <div class="specs">
-      <h4 class="specs-title">Specs</h4>
-      <div class="specs-list">
+    
+      <div class="specs">
         
-          <pre><code class="elixir">current_account_to_struct(Client) :: Account</code></pre>
+          <pre>current_account_to_struct(Client) :: Account</pre>
         
       </div>
-    </div>
-  
+    
+  </div>
   <section class="docstring">
     
   </section>
 </div>
 <div class="detail" id="get_account/2">
+  
   <div class="detail-header">
     <a href="#get_account/2" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
@@ -216,26 +215,28 @@
     <span class="signature">get_account(client, id)</span>
     
     
-  </div>
-  
-    <div class="specs">
-      <h4 class="specs-title">Specs</h4>
-      <div class="specs-list">
+    
+      <div class="specs">
         
-          <pre><code class="elixir">get_account(Client, binary) :: Map</code></pre>
+          <pre>get_account(Client, binary) :: Map</pre>
         
       </div>
-    </div>
-  
+    
+  </div>
   <section class="docstring">
     <p>Get user account by account_id</p>
-<h2>Example</h2>
+<h2 id="get_account/2-example" class="section-heading">
+  <a href="#get_account/2-example" class="hover-link"><i class="icon-link"></i></a>
+  Example
+</h2>
+
 <p>  ElixirDropbox.Users client, “dbid:AABYkM-pR8ynnNPIVBjMTPRrIyuT4bgtest”  </p>
-<p>More info at: <a href="https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account">https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account</a></p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account</p>
 
   </section>
 </div>
 <div class="detail" id="get_account_batch/2">
+  
   <div class="detail-header">
     <a href="#get_account_batch/2" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
@@ -243,26 +244,28 @@
     <span class="signature">get_account_batch(client, account_ids)</span>
     
     
-  </div>
-  
-    <div class="specs">
-      <h4 class="specs-title">Specs</h4>
-      <div class="specs-list">
+    
+      <div class="specs">
         
-          <pre><code class="elixir">get_account_batch(Client, binary) :: Map</code></pre>
+          <pre>get_account_batch(Client, binary) :: Map</pre>
         
       </div>
-    </div>
-  
+    
+  </div>
   <section class="docstring">
     <p>Get user account batch by account_ids.List of user account identifiers</p>
-<h2>Example</h2>
-<p>  ElixirDropbox.Users.get_account_batch client,  ["12345", "6789"]</p>
-<p>More info at: <a href="https://www.dropbox.com/developers/documentation/http/documentation#users-get_account_batch">https://www.dropbox.com/developers/documentation/http/documentation#users-get_account_batch</a></p>
+<h2 id="get_account_batch/2-example" class="section-heading">
+  <a href="#get_account_batch/2-example" class="hover-link"><i class="icon-link"></i></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Users.get_account_batch client,  [“12345”, “6789”]</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_account_batch</p>
 
   </section>
 </div>
 <div class="detail" id="get_account_to_struct/2">
+  
   <div class="detail-header">
     <a href="#get_account_to_struct/2" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
@@ -270,22 +273,20 @@
     <span class="signature">get_account_to_struct(client, id)</span>
     
     
-  </div>
-  
-    <div class="specs">
-      <h4 class="specs-title">Specs</h4>
-      <div class="specs-list">
+    
+      <div class="specs">
         
-          <pre><code class="elixir">get_account_to_struct(Client, binary) :: Account</code></pre>
+          <pre>get_account_to_struct(Client, binary) :: Account</pre>
         
       </div>
-    </div>
-  
+    
+  </div>
   <section class="docstring">
     
   </section>
 </div>
 <div class="detail" id="get_space_usage/1">
+  
   <div class="detail-header">
     <a href="#get_space_usage/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
@@ -293,26 +294,28 @@
     <span class="signature">get_space_usage(client)</span>
     
     
-  </div>
-  
-    <div class="specs">
-      <h4 class="specs-title">Specs</h4>
-      <div class="specs-list">
+    
+      <div class="specs">
         
-          <pre><code class="elixir">get_space_usage(Client) :: Map</code></pre>
+          <pre>get_space_usage(Client) :: Map</pre>
         
       </div>
-    </div>
-  
+    
+  </div>
   <section class="docstring">
     <p>Get user space usage</p>
-<h2>Example</h2>
+<h2 id="get_space_usage/1-example" class="section-heading">
+  <a href="#get_space_usage/1-example" class="hover-link"><i class="icon-link"></i></a>
+  Example
+</h2>
+
 <p>  ElixirDropbox.Users.get_space_usage client</p>
-<p>More info at: <a href="https://www.dropbox.com/developers/documentation/http/documentation#users-get_space_usage">https://www.dropbox.com/developers/documentation/http/documentation#users-get_space_usage</a></p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_space_usage</p>
 
   </section>
 </div>
 <div class="detail" id="get_space_usage_to_struct/1">
+  
   <div class="detail-header">
     <a href="#get_space_usage_to_struct/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
@@ -320,8 +323,8 @@
     <span class="signature">get_space_usage_to_struct(client)</span>
     
     
+    
   </div>
-  
   <section class="docstring">
     
   </section>
@@ -331,13 +334,11 @@
       
 
       
-
-      
           <footer class="footer">
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.12.0),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.15.0),
           </span>
           <span class="line">
             designed by
@@ -350,7 +351,7 @@
   </div>
 </section>
 </div>
-  <script src="dist/app-21f1a20b9e.js"></script>
+  <script src="dist/app-372682077e.js"></script>
   </body>
 </html>
 

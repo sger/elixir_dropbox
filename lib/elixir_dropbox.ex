@@ -1,6 +1,6 @@
 defmodule ElixirDropbox do
   @moduledoc """
-  ElixirDropbox is a wrapper for Dropbox API V2 
+  ElixirDropbox is a wrapper for Dropbox API V2
   """
   use HTTPoison.Base
 
@@ -10,7 +10,7 @@ defmodule ElixirDropbox do
   @upload_url Application.get_env(:elixir_dropbox, :upload_url)
 
   def post(client, url, body \\ "") do
-    headers = json_headers
+    headers = json_headers()
     post_request(client, "#{@base_url}#{url}", body, headers)
   end
 
@@ -51,7 +51,7 @@ defmodule ElixirDropbox do
     |> hd
     |> elem(1)
   end
-  
+
   def upload_request(client, url, data, headers) do
     post_request(client, "#{@upload_url}#{url}", {:file, data}, headers)
   end

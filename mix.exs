@@ -1,6 +1,6 @@
 defmodule ElixirDropbox.Mixfile do
   use Mix.Project
-  
+
   @description """
     Simple Elixir wrapper for the Dropbox v2 API
   """
@@ -11,10 +11,10 @@ defmodule ElixirDropbox.Mixfile do
      elixir: "~> 1.2",
      name: "ElixirDropbox",
      description: @description,
-     package: package,
+     package: package(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps()]
   end
 
   # Configuration for the OTP application
@@ -31,7 +31,7 @@ defmodule ElixirDropbox.Mixfile do
       { :poison, "~> 1.5" },
       { :inch_ex, "~> 0.5", only: [:dev, :test] },
       { :json, "~> 0.3.0" },
-      { :ex_doc, github: "elixir-lang/ex_doc" } 
+      { :ex_doc, github: "elixir-lang/ex_doc" }
     ]
   end
 

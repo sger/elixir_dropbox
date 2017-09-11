@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sger/elixir_dropbox.svg?branch=master)](https://travis-ci.org/sger/elixir_dropbox)
+
 # ElixirDropbox
 
  Simple Dropbox v2 client for Elixir.

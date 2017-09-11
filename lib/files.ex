@@ -10,12 +10,12 @@ defmodule ElixirDropbox.Files do
     ElixirDropbox.Files.create_folder client, "/Path"
 
   More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-create_folder
-  """  
+  """
   @spec create_folder(Client, binary) :: Map
   def create_folder(client, path) do
     body = %{"path" => path}
     result = to_string(Poison.Encoder.encode(body, []))
-    post(client, "/files/create_folder", result) 
+    post(client, "/files/create_folder_v2", result)
   end
 
   @doc """
@@ -26,17 +26,17 @@ defmodule ElixirDropbox.Files do
     ElixirDropbox.Files.create_folder_to_struct client, "/Path"
 
   More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-create_folder
-  """  
+  """
   @spec create_folder_to_struct(Client, binary) :: Map
   def create_folder_to_struct(client, path) do
     response = create_folder(client, path)
     if is_map(response) do
       to_struct(%ElixirDropbox.Folder{}, response)
     else
-      elem(response, 1) 
-    end 
+      elem(response, 1)
+    end
   end
-  
+
  @doc """
   Delete folder returns map
 
@@ -46,10 +46,10 @@ defmodule ElixirDropbox.Files do
 
   More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-delete
  """
-  def delete_folder(client, path) do 
+  def delete_folder(client, path) do
     body = %{"path" => path}
     result = to_string(Poison.Encoder.encode(body, []))
-    post(client, "/files/delete", result) 
+    post(client, "/files/delete_v2", result)
   end
 
   @doc """
@@ -60,7 +60,7 @@ defmodule ElixirDropbox.Files do
     ElixirDropbox.Files.delete_folder_to_struct client, "/Path"
 
   More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-delete
-  """  
+  """
   def delete_folder_to_struct(client, path) do
     response = delete_folder(client, path)
     if is_map(response) do
@@ -68,30 +68,30 @@ defmodule ElixirDropbox.Files do
     else
       elem(response, 1)
     end
-  end 
-  
+  end
+
   @doc """
   Copy a file or folder to a different location in the user's Dropbox.
-  If the source path is a folder all its contents will be copied. 
-  
+  If the source path is a folder all its contents will be copied.
+
   ## Example
 
     ElixirDropbox.Files.copy(client, "/Temp/first", "/Tmp/second")
 
   More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-copy
-  """   
+  """
   def copy(client, from_path, to_path) do
     body = %{"from_path" => from_path, "to_path" => to_path}
     result = to_string(Poison.Encoder.encode(body, []))
-    post(client, "/files/copy", result) 
-  end  
+    post(client, "/files/copy", result)
+  end
 
   @doc """
   Move a file or folder to a different location in the user's Dropbox.
   If the source path is a folder all its contents will be moved.
-  
+
   ## Example
-    
+
     ElixirDropbox.Files.move(client, "/Homework/math", "/Homework/algebra")
 
   More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-move
@@ -99,19 +99,19 @@ defmodule ElixirDropbox.Files do
   def move(client, from_path, to_path) do
     body = %{"from_path" => from_path, "to_path" => to_path}
     result = to_string(Poison.Encoder.encode(body, []))
-    post(client, "/files/move", result) 
+    post(client, "/files/move", result)
   end
 
   def restore(client, path, rev) do
     body = %{"path" => path, "rev" => rev}
     result = to_string(Poison.Encoder.encode(body, []))
-    post(client, "/files/restore", result) 
+    post(client, "/files/restore", result)
   end
-  
+
   def list_revisions(client, path, limit \\ 10) do
     body = %{"path" => path, "limit" => limit}
     result = to_string(Poison.Encoder.encode(body, []))
-    post(client, "/files/list_revisions", result) 
+    post(client, "/files/list_revisions", result)
   end
 
   def upload(client, path, file, mode \\ "add", autorename \\ true, mute \\ false) do
@@ -142,7 +142,7 @@ defmodule ElixirDropbox.Files do
     headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers) }
     download_request(client, "files/get_thumbnail", [], headers)
   end
-  
+
   def get_preview(client, path) do
     dropbox_headers = %{
       :path => path

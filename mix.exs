@@ -33,8 +33,7 @@ defmodule ElixirDropbox.Mixfile do
       { :poison, "~> 1.5" },
       { :inch_ex, "~> 0.5", only: [:dev, :test] },
       { :json, "~> 0.3.0" },
-      { :ex_doc, "~> 0.14", only: :dev, runtime: false },
-      { :excoveralls, "~> 0.7", only: :test }
+      { :ex_doc, "~> 0.14", only: :dev, runtime: false }
     ]
   end
 

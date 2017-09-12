@@ -10,6 +10,6 @@ otp_release:
 env:
   - MIX_ENV=test
 script:
-  - "mix do deps.get, compile"
+  - "mix do deps.get, compile, coveralls.travis"
 after_script:
   - "MIX_ENV=docs mix do deps.get, inch.report"

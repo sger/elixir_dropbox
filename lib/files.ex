@@ -78,12 +78,18 @@ defmodule ElixirDropbox.Files do
 
     ElixirDropbox.Files.copy(client, "/Temp/first", "/Tmp/second")
 
-  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-copy
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-copy_v2
   """
   def copy(client, from_path, to_path) do
     body = %{"from_path" => from_path, "to_path" => to_path}
     result = to_string(Poison.Encoder.encode(body, []))
-    post(client, "/files/copy", result)
+    post(client, "/files/copy_v2", result)
+  end
+
+  def copy_batch(client, from_path, to_path) do
+    body = %{"entries" => [%{"from_path" => from_path, "to_path" => to_path}], "allow_shared_folder" => false, "autorename" => false, "allow_ownership_transfer" => false}
+    result = to_string(Poison.Encoder.encode(body, []))
+    post(client, "/files/copy_batch", result)
   end
 
   @doc """
@@ -106,12 +112,6 @@ defmodule ElixirDropbox.Files do
     body = %{"path" => path, "rev" => rev}
     result = to_string(Poison.Encoder.encode(body, []))
     post(client, "/files/restore", result)
-  end
-
-  def list_revisions(client, path, limit \\ 10) do
-    body = %{"path" => path, "limit" => limit}
-    result = to_string(Poison.Encoder.encode(body, []))
-    post(client, "/files/list_revisions", result)
   end
 
   def upload(client, path, file, mode \\ "add", autorename \\ true, mute \\ false) do

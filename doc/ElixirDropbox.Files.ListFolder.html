@@ -5,10 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.16.4">
-    <title>ElixirDropbox.Users – ElixirDropbox v0.0.6</title>
+    <title>ElixirDropbox.Files.ListFolder – ElixirDropbox v0.0.6</title>
     <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
     
-      <link rel="canonical" href="https://hexdocs.pm/elixir_dropbox/ElixirDropbox.Users.html" />
+      <link rel="canonical" href="https://hexdocs.pm/elixir_dropbox/ElixirDropbox.Files.ListFolder.html" />
     
     
     <script src="dist/sidebar_items-f47c6719a8.js"></script>
@@ -68,7 +68,7 @@
 
       <h1>
         <small class="visible-xs">ElixirDropbox v0.0.6</small>
-        ElixirDropbox.Users
+        ElixirDropbox.Files.ListFolder
         
       </h1>
 
@@ -92,56 +92,49 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#current_account/1">current_account(client)</a>
+    <a href="#get_latest_cursor/2">get_latest_cursor(client, path)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Get user current account</p>
+    <div class="summary-synopsis"><p>A way to quickly get a cursor for the folder’s state</p>
 </div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#current_account_to_struct/1">current_account_to_struct(client)</a>
+    <a href="#list_folder/2">list_folder(client, path)</a>
   </div>
   
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#get_account/2">get_account(client, id)</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>Get user account by account_id</p>
+    <div class="summary-synopsis"><p>Starts returning the contents of a folder</p>
 </div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#get_account_batch/2">get_account_batch(client, account_ids)</a>
+    <a href="#list_folder_continue/2">list_folder_continue(client, cursor)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Get user account batch by account_ids.List of user account identifiers</p>
+    <div class="summary-synopsis"><p>Once a cursor has been retrieved from list_folder,
+use this to paginate through all files and retrieve updates to the folder,
+following the same rules as documented for list_folder</p>
 </div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#get_account_to_struct/2">get_account_to_struct(client, id)</a>
+    <a href="#list_revisions/3">list_revisions(client, path, limit \\ 10)</a>
   </div>
   
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#get_space_usage/1">get_space_usage(client)</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>Get user space usage</p>
+    <div class="summary-synopsis"><p>Return revisions of a file</p>
 </div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#get_space_usage_to_struct/1">get_space_usage_to_struct(client)</a>
+    <a href="#longpoll/2">longpoll(client, cursor)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>A longpoll endpoint to wait for changes on an account</p>
+</div>
   
 </div>
 
@@ -164,191 +157,143 @@
             </a>
             Functions
           </h1>
-          <div class="detail" id="current_account/1">
+          <div class="detail" id="get_latest_cursor/2">
   
   
   <div class="detail-header">
-    <a href="#current_account/1" class="detail-link" title="Link to this function">
+    <a href="#get_latest_cursor/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">current_account(client)</span>
+    <span class="signature">get_latest_cursor(client, path)</span>
     
     
     
       <div class="specs">
         
-          <pre>current_account(Client) :: Map</pre>
+          <pre>get_latest_cursor(Client.t, binary) :: <a href="ElixirDropbox.html#t:response/0">ElixirDropbox.response</a></pre>
         
       </div>
     
   </div>
   <section class="docstring">
-    <p>Get user current account</p>
-<h2 id="current_account/1-example" class="section-heading">
-  <a href="#current_account/1-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Example
-</h2>
-
-<p>  ElixirDropbox.Users.current_account client</p>
-<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account</p>
+    <p>A way to quickly get a cursor for the folder’s state.</p>
+<p>##Example</p>
+<p>   ElixirDropbox.Files.ListFolder.get_latest_cursor client, “”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-list_revisions</p>
 
   </section>
 </div>
-<div class="detail" id="current_account_to_struct/1">
+<div class="detail" id="list_folder/2">
   
   
   <div class="detail-header">
-    <a href="#current_account_to_struct/1" class="detail-link" title="Link to this function">
+    <a href="#list_folder/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">current_account_to_struct(client)</span>
+    <span class="signature">list_folder(client, path)</span>
     
     
     
       <div class="specs">
         
-          <pre>current_account_to_struct(Client) :: Account</pre>
+          <pre>list_folder(Client.t, binary) :: <a href="ElixirDropbox.html#t:response/0">ElixirDropbox.response</a></pre>
         
       </div>
     
   </div>
   <section class="docstring">
-    
+    <p>Starts returning the contents of a folder.</p>
+<p>##Example</p>
+<p>   ElixirDropbox.Files.ListFolder.list_folder client, “/path”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder</p>
+
   </section>
 </div>
-<div class="detail" id="get_account/2">
+<div class="detail" id="list_folder_continue/2">
   
   
   <div class="detail-header">
-    <a href="#get_account/2" class="detail-link" title="Link to this function">
+    <a href="#list_folder_continue/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">get_account(client, id)</span>
+    <span class="signature">list_folder_continue(client, cursor)</span>
     
     
     
       <div class="specs">
         
-          <pre>get_account(Client, binary) :: Map</pre>
+          <pre>list_folder_continue(Client.t, binary) :: <a href="ElixirDropbox.html#t:response/0">ElixirDropbox.response</a></pre>
         
       </div>
     
   </div>
   <section class="docstring">
-    <p>Get user account by account_id</p>
-<h2 id="get_account/2-example" class="section-heading">
-  <a href="#get_account/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Example
-</h2>
-
-<p>  ElixirDropbox.Users client, “TOKEN”  </p>
-<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account</p>
+    <p>Once a cursor has been retrieved from list_folder,
+use this to paginate through all files and retrieve updates to the folder,
+following the same rules as documented for list_folder.</p>
+<p>##Example</p>
+<p>   ElixirDropbox.Files.ListFolder.list_folder_continue client, “”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-continue</p>
 
   </section>
 </div>
-<div class="detail" id="get_account_batch/2">
+<div class="detail" id="list_revisions/3">
   
+  
+    <span id="list_revisions/2"></span>
   
   <div class="detail-header">
-    <a href="#get_account_batch/2" class="detail-link" title="Link to this function">
+    <a href="#list_revisions/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">get_account_batch(client, account_ids)</span>
+    <span class="signature">list_revisions(client, path, limit \\ 10)</span>
     
     
     
       <div class="specs">
         
-          <pre>get_account_batch(Client, binary) :: Map</pre>
+          <pre>list_revisions(Client.t, binary, number) :: <a href="ElixirDropbox.html#t:response/0">ElixirDropbox.response</a></pre>
         
       </div>
     
   </div>
   <section class="docstring">
-    <p>Get user account batch by account_ids.List of user account identifiers</p>
-<h2 id="get_account_batch/2-example" class="section-heading">
-  <a href="#get_account_batch/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Example
-</h2>
-
-<p>  ElixirDropbox.Users.get_account_batch client,  [“12345”, “6789”]</p>
-<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_account_batch</p>
+    <p>Return revisions of a file.</p>
+<p>##Example</p>
+<p>   ElixirDropbox.Files.ListFolder.list_revisions client, “”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-list_revisions</p>
 
   </section>
 </div>
-<div class="detail" id="get_account_to_struct/2">
+<div class="detail" id="longpoll/2">
   
   
   <div class="detail-header">
-    <a href="#get_account_to_struct/2" class="detail-link" title="Link to this function">
+    <a href="#longpoll/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">get_account_to_struct(client, id)</span>
+    <span class="signature">longpoll(client, cursor)</span>
     
     
     
       <div class="specs">
         
-          <pre>get_account_to_struct(Client, binary) :: Account</pre>
+          <pre>longpoll(Client.t, binary) :: <a href="ElixirDropbox.html#t:response/0">ElixirDropbox.response</a></pre>
         
       </div>
     
   </div>
   <section class="docstring">
-    
-  </section>
-</div>
-<div class="detail" id="get_space_usage/1">
-  
-  
-  <div class="detail-header">
-    <a href="#get_space_usage/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">get_space_usage(client)</span>
-    
-    
-    
-      <div class="specs">
-        
-          <pre>get_space_usage(Client) :: Map</pre>
-        
-      </div>
-    
-  </div>
-  <section class="docstring">
-    <p>Get user space usage</p>
-<h2 id="get_space_usage/1-example" class="section-heading">
-  <a href="#get_space_usage/1-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Example
-</h2>
+    <p>A longpoll endpoint to wait for changes on an account.</p>
+<p>##Example</p>
+<p>   ElixirDropbox.Files.ListFolder.longpoll client, “”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-longpoll</p>
 
-<p>  ElixirDropbox.Users.get_space_usage client</p>
-<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_space_usage</p>
-
-  </section>
-</div>
-<div class="detail" id="get_space_usage_to_struct/1">
-  
-  
-  <div class="detail-header">
-    <a href="#get_space_usage_to_struct/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">get_space_usage_to_struct(client)</span>
-    
-    
-    
-  </div>
-  <section class="docstring">
-    
   </section>
 </div>
 

@@ -15,7 +15,7 @@
       "body": "{\"account_id\": \"dbid:AABYkM-pR8ynnNPIVBjMTPRrIyuT4bgtick\", \"name\": {\"given_name\": \"Spiros\", \"surname\": \"Gerokostas\", \"familiar_name\": \"Spiros\", \"display_name\": \"Spiros Gerokostas\", \"abbreviated_name\": \"SG\"}, \"email\": \"info@spirosgerokostas.com\", \"email_verified\": true, \"disabled\": false, \"country\": \"GR\", \"locale\": \"en\", \"referral_link\": \"https://db.tt/WZtzCcCs\", \"is_paired\": false, \"account_type\": {\".tag\": \"pro\"}}",
       "headers": {
         "Server": "nginx",
-        "Date": "Wed, 13 Sep 2017 17:27:19 GMT",
+        "Date": "Sun, 17 Sep 2017 05:59:04 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -23,9 +23,9 @@
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "X-Content-Type-Options": "nosniff",
-        "X-Dropbox-Request-Id": "147661c22e470f99f6c7e1aa49770843",
+        "X-Dropbox-Request-Id": "9075c549299a5c8ace77d8f311c10a76",
         "X-Frame-Options": "SAMEORIGIN",
-        "X-Server-Response-Time": "191"
+        "X-Server-Response-Time": "120"
       },
       "status_code": 200,
       "type": "ok"

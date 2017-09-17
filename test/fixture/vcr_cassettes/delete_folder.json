@@ -12,10 +12,10 @@
       "url": "https://api.dropboxapi.com/2/files/create_folder_v2"
     },
     "response": {
-      "body": "{\"metadata\": {\"name\": \"deleted_folder\", \"path_lower\": \"/deleted_folder\", \"path_display\": \"/deleted_folder\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMpA\"}}",
+      "body": "{\"metadata\": {\"name\": \"deleted_folder\", \"path_lower\": \"/deleted_folder\", \"path_display\": \"/deleted_folder\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMzQ\"}}",
       "headers": {
         "Server": "nginx",
-        "Date": "Wed, 13 Sep 2017 17:27:24 GMT",
+        "Date": "Sun, 17 Sep 2017 05:59:00 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -23,9 +23,9 @@
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "X-Content-Type-Options": "nosniff",
-        "X-Dropbox-Request-Id": "18ee8136771ae6c479fcaa4d03a33c56",
+        "X-Dropbox-Request-Id": "26b20987568721387737d98e64134a45",
         "X-Frame-Options": "SAMEORIGIN",
-        "X-Server-Response-Time": "621"
+        "X-Server-Response-Time": "461"
       },
       "status_code": 200,
       "type": "ok"
@@ -44,10 +44,10 @@
       "url": "https://api.dropboxapi.com/2/files/delete_v2"
     },
     "response": {
-      "body": "{\"metadata\": {\".tag\": \"folder\", \"name\": \"deleted_folder\", \"path_lower\": \"/deleted_folder\", \"path_display\": \"/deleted_folder\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMpA\"}}",
+      "body": "{\"metadata\": {\".tag\": \"folder\", \"name\": \"deleted_folder\", \"path_lower\": \"/deleted_folder\", \"path_display\": \"/deleted_folder\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMzQ\"}}",
       "headers": {
         "Server": "nginx",
-        "Date": "Wed, 13 Sep 2017 17:27:25 GMT",
+        "Date": "Sun, 17 Sep 2017 05:59:02 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -55,9 +55,9 @@
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "X-Content-Type-Options": "nosniff",
-        "X-Dropbox-Request-Id": "1f4723728706b62faae9b9f7ba3a913b",
+        "X-Dropbox-Request-Id": "23e90d6116801157cd986508bf41330a",
         "X-Frame-Options": "SAMEORIGIN",
-        "X-Server-Response-Time": "706"
+        "X-Server-Response-Time": "1926"
       },
       "status_code": 200,
       "type": "ok"

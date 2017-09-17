@@ -12,10 +12,10 @@
       "url": "https://api.dropboxapi.com/2/files/create_folder_v2"
     },
     "response": {
-      "body": "{\"metadata\": {\"name\": \"test\", \"path_lower\": \"/test\", \"path_display\": \"/test\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMog\"}}",
+      "body": "{\"metadata\": {\"name\": \"test\", \"path_lower\": \"/test\", \"path_display\": \"/test\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMzg\"}}",
       "headers": {
         "Server": "nginx",
-        "Date": "Wed, 13 Sep 2017 17:27:20 GMT",
+        "Date": "Sun, 17 Sep 2017 05:59:03 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -23,9 +23,9 @@
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "X-Content-Type-Options": "nosniff",
-        "X-Dropbox-Request-Id": "64b78f18cbe880b6560788e4b0d730ce",
+        "X-Dropbox-Request-Id": "865aad75655700e395b2b902c41df7a3",
         "X-Frame-Options": "SAMEORIGIN",
-        "X-Server-Response-Time": "639"
+        "X-Server-Response-Time": "382"
       },
       "status_code": 200,
       "type": "ok"
@@ -44,10 +44,10 @@
       "url": "https://api.dropboxapi.com/2/files/get_metadata"
     },
     "response": {
-      "body": "{\".tag\": \"folder\", \"name\": \"test\", \"path_lower\": \"/test\", \"path_display\": \"/test\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMog\"}",
+      "body": "{\".tag\": \"folder\", \"name\": \"test\", \"path_lower\": \"/test\", \"path_display\": \"/test\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMzg\"}",
       "headers": {
         "Server": "nginx",
-        "Date": "Wed, 13 Sep 2017 17:27:21 GMT",
+        "Date": "Sun, 17 Sep 2017 05:59:03 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -55,9 +55,9 @@
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "X-Content-Type-Options": "nosniff",
-        "X-Dropbox-Request-Id": "b0cfc5c0093f641b32e148bbec51b2a3",
+        "X-Dropbox-Request-Id": "4108a169a205ad38d446be1ece7920ae",
         "X-Frame-Options": "SAMEORIGIN",
-        "X-Server-Response-Time": "189"
+        "X-Server-Response-Time": "140"
       },
       "status_code": 200,
       "type": "ok"
@@ -76,10 +76,10 @@
       "url": "https://api.dropboxapi.com/2/files/delete_v2"
     },
     "response": {
-      "body": "{\"metadata\": {\".tag\": \"folder\", \"name\": \"test\", \"path_lower\": \"/test\", \"path_display\": \"/test\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMog\"}}",
+      "body": "{\"metadata\": {\".tag\": \"folder\", \"name\": \"test\", \"path_lower\": \"/test\", \"path_display\": \"/test\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMzg\"}}",
       "headers": {
         "Server": "nginx",
-        "Date": "Wed, 13 Sep 2017 17:27:22 GMT",
+        "Date": "Sun, 17 Sep 2017 05:59:04 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -87,9 +87,9 @@
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "X-Content-Type-Options": "nosniff",
-        "X-Dropbox-Request-Id": "68c1c2689b4c4951b01f4af239b7ee30",
+        "X-Dropbox-Request-Id": "1c74c74502a72205fff33a27bc133617",
         "X-Frame-Options": "SAMEORIGIN",
-        "X-Server-Response-Time": "787"
+        "X-Server-Response-Time": "386"
       },
       "status_code": 200,
       "type": "ok"

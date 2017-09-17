@@ -86,12 +86,6 @@ defmodule ElixirDropbox.Files do
     post(client, "/files/copy_v2", result)
   end
 
-  def copy_batch(client, from_path, to_path) do
-    body = %{"entries" => [%{"from_path" => from_path, "to_path" => to_path}], "allow_shared_folder" => false, "autorename" => false, "allow_ownership_transfer" => false}
-    result = to_string(Poison.Encoder.encode(body, []))
-    post(client, "/files/copy_batch", result)
-  end
-
   @doc """
   Move a file or folder to a different location in the user's Dropbox.
   If the source path is a folder all its contents will be moved.
@@ -114,6 +108,15 @@ defmodule ElixirDropbox.Files do
     post(client, "/files/restore", result)
   end
 
+  @doc """
+  Create a new file with the contents provided in the request.
+
+  ## Example
+
+    ElixirDropbox.Files.upload client, "/mypdf.pdf", "/mypdf.pdf"
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-upload
+  """
   def upload(client, path, file, mode \\ "add", autorename \\ true, mute \\ false) do
     dropbox_headers = %{
       :path => path,
@@ -122,7 +125,7 @@ defmodule ElixirDropbox.Files do
       :mute => mute
     }
     headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers), "Content-Type" => "application/octet-stream" }
-    upload_request(client, "files/upload", file, headers)
+    upload_request(client, Application.get_env(:elixir_dropbox, :upload_url), "files/upload", file, headers)
   end
 
   def download(client, path) do
@@ -130,7 +133,7 @@ defmodule ElixirDropbox.Files do
       :path => path
     }
     headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers) }
-    download_request(client, "files/download", [], headers)
+    download_request(client, Application.get_env(:elixir_dropbox, :upload_url), "files/download", [], headers)
   end
 
   def get_thumbnail(client, path, format \\ "jpeg", size \\ "w64h64") do
@@ -140,7 +143,7 @@ defmodule ElixirDropbox.Files do
       :size => size
     }
     headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers) }
-    download_request(client, "files/get_thumbnail", [], headers)
+    download_request(client, Application.get_env(:elixir_dropbox, :upload_url), "files/get_thumbnail", [], headers)
   end
 
   def get_preview(client, path) do
@@ -148,7 +151,7 @@ defmodule ElixirDropbox.Files do
       :path => path
     }
     headers = %{ "Dropbox-API-Arg" => Poison.encode!(dropbox_headers) }
-    download_request(client, "files/get_preview", [], headers)
+    download_request(client, Application.get_env(:elixir_dropbox, :upload_url), "files/get_preview", [], headers)
   end
 
   def get_metadata(client, path, include_media_info \\ false) do

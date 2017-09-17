@@ -1,4 +1,4 @@
 defmodule ElixirDropbox.Allocation do
 	defstruct tag: nil,
-    		  allocated: nil
+    		  	allocated: nil
 end

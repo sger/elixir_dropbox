@@ -7,7 +7,6 @@ defmodule ElixirDropbox do
   @type response :: {any}
 
   @base_url Application.get_env(:elixir_dropbox, :base_url)
-  @upload_url Application.get_env(:elixir_dropbox, :upload_url)
 
   def post(client, url, body \\ "") do
     headers = json_headers()
@@ -23,12 +22,12 @@ defmodule ElixirDropbox do
     end
   end
 
-   @spec download_response(HTTPoison.Response.t) :: response
-   def download_response(response) do
-    case response do
-      {:ok, %{body: body, headers: headers, status_code: 200}} ->
-        {:ok, %{file: body, headers: get_header(headers, "dropbox_api_result") |> Poison.decode}}
-      _-> response
+  @spec download_response(HTTPoison.Response.t) :: response
+  def download_response(%HTTPoison.Response{status_code: 200, body: body, headers: headers}), do: %{body: body, headers: headers}
+  def download_response(%HTTPoison.Response{status_code: status_code, body: body }) do
+    cond do
+    status_code in 400..599 ->
+      {{:status_code, status_code}, JSON.decode(body)}
     end
   end
 
@@ -37,27 +36,20 @@ defmodule ElixirDropbox do
     HTTPoison.post!(url, body, headers) |> upload_response
   end
 
+  def upload_request(client, base_url, url, data, headers) do
+    post_request(client, "#{base_url}#{url}", {:file, data}, headers)
+  end
+
+  def download_request(client, base_url, url, data, headers) do
+    headers = Map.merge(headers, headers(client))
+    HTTPoison.post!("#{base_url}#{url}", data, headers) |> download_response
+  end
+  
   def headers(client) do
     %{ "Authorization" => "Bearer #{client.access_token}" }
   end
 
   def json_headers do
     %{ "Content-Type" => "application/json" }
-  end
-
-  def get_header(headers, key) do
-    headers
-    |> Enum.filter(fn({k, _}) -> k == key end)
-    |> hd
-    |> elem(1)
-  end
-
-  def upload_request(client, url, data, headers) do
-    post_request(client, "#{@upload_url}#{url}", {:file, data}, headers)
-  end
-
-  def download_request(client, url, data, headers) do
-    headers = Map.merge(headers, headers(client))
-    HTTPoison.post!("#{@upload_url}#{url}", data, headers) |> download_response
   end
 end

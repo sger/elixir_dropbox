@@ -12,10 +12,10 @@
       "url": "https://api.dropboxapi.com/2/users/get_space_usage"
     },
     "response": {
-      "body": "{\"used\": 5198729937, \"allocation\": {\".tag\": \"individual\", \"allocated\": 1101927546880}}",
+      "body": "{\"used\": 5197618112, \"allocation\": {\".tag\": \"individual\", \"allocated\": 1101927546880}}",
       "headers": {
         "Server": "nginx",
-        "Date": "Sun, 17 Sep 2017 05:59:02 GMT",
+        "Date": "Sun, 17 Sep 2017 06:09:01 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -23,9 +23,9 @@
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "X-Content-Type-Options": "nosniff",
-        "X-Dropbox-Request-Id": "402334b604fd4d84aab0d21204e679b8",
+        "X-Dropbox-Request-Id": "87c9442e4d03c90d2cdd71c0afa00b3f",
         "X-Frame-Options": "SAMEORIGIN",
-        "X-Server-Response-Time": "193"
+        "X-Server-Response-Time": "93"
       },
       "status_code": 200,
       "type": "ok"

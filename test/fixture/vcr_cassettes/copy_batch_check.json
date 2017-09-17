@@ -15,7 +15,7 @@
       "body": "{\".tag\": \"complete\", \"entries\": [{\"metadata\": {\".tag\": \"folder\", \"name\": \"Tmp2\", \"path_lower\": \"/tmp2\", \"path_display\": \"/Tmp2\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMvg\"}}]}",
       "headers": {
         "Server": "nginx",
-        "Date": "Sun, 17 Sep 2017 05:59:05 GMT",
+        "Date": "Sun, 17 Sep 2017 06:09:07 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -23,9 +23,9 @@
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "X-Content-Type-Options": "nosniff",
-        "X-Dropbox-Request-Id": "da5ac83f845ccde2d4ff8b2e1a343f09",
+        "X-Dropbox-Request-Id": "401f85d09a2f6229dca7abcdf8cc4aaa",
         "X-Frame-Options": "SAMEORIGIN",
-        "X-Server-Response-Time": "111"
+        "X-Server-Response-Time": "113"
       },
       "status_code": 200,
       "type": "ok"

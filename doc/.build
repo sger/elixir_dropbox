@@ -4,7 +4,7 @@ fonts/icomoon.eot
 fonts/icomoon.svg
 fonts/icomoon.ttf
 fonts/icomoon.woff
-dist/sidebar_items-f47c6719a8.js
+dist/sidebar_items-024e7da218.js
 api-reference.html
 search.html
 404.html
@@ -12,10 +12,16 @@ ElixirDropbox.html
 ElixirDropbox.Account.html
 ElixirDropbox.Allocation.html
 ElixirDropbox.Client.html
+ElixirDropbox.FileRequests.html
 ElixirDropbox.Files.html
+ElixirDropbox.Files.CopyBatch.html
 ElixirDropbox.Files.ListFolder.html
 ElixirDropbox.Folder.html
 ElixirDropbox.Name.html
+ElixirDropbox.Paper.Docs.html
+ElixirDropbox.Paper.FolderUsers.html
+ElixirDropbox.Paper.SharingPolicy.html
+ElixirDropbox.Paper.Users.html
 ElixirDropbox.SharedLink.html
 ElixirDropbox.Sharing.html
 ElixirDropbox.SpaceUsage.html

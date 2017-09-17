@@ -5,13 +5,11 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.16.4">
-    <title>ElixirDropbox – ElixirDropbox v0.0.6</title>
+    <title>ElixirDropbox – ElixirDropbox v0.0.7</title>
     <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
     
-      <link rel="canonical" href="https://hexdocs.pm/elixir_dropbox/ElixirDropbox.html" />
     
-    
-    <script src="dist/sidebar_items-f47c6719a8.js"></script>
+    <script src="dist/sidebar_items-024e7da218.js"></script>
     
   </head>
   <body data-type="modules">
@@ -31,7 +29,7 @@
         ElixirDropbox
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.6
+        v0.0.7
       </h2>
     </div>
     
@@ -67,7 +65,7 @@
 
 
       <h1>
-        <small class="visible-xs">ElixirDropbox v0.0.6</small>
+        <small class="visible-xs">ElixirDropbox v0.0.7</small>
         ElixirDropbox
         
       </h1>
@@ -141,7 +139,7 @@ failure</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#download_request/4">download_request(client, url, data, headers)</a>
+    <a href="#download_request/5">download_request(client, base_url, url, data, headers)</a>
   </div>
   
 </div>
@@ -168,12 +166,6 @@ failure</p>
     <div class="summary-synopsis"><p>Issues a GET request to the given url, raising an exception in case of
 failure</p>
 </div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#get_header/2">get_header(headers, key)</a>
-  </div>
   
 </div>
 <div class="summary-row">
@@ -382,7 +374,7 @@ exception in case of failure</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#upload_request/4">upload_request(client, url, data, headers)</a>
+    <a href="#upload_request/5">upload_request(client, base_url, url, data, headers)</a>
   </div>
   
 </div>
@@ -560,15 +552,15 @@ failure.</p>
 
   </section>
 </div>
-<div class="detail" id="download_request/4">
+<div class="detail" id="download_request/5">
   
   
   <div class="detail-header">
-    <a href="#download_request/4" class="detail-link" title="Link to this function">
+    <a href="#download_request/5" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">download_request(client, url, data, headers)</span>
+    <span class="signature">download_request(client, base_url, url, data, headers)</span>
     
     
     
@@ -664,23 +656,6 @@ failure.</p>
 <p>If the request does not fail, the response is returned.</p>
 <p>See <a href="#request!/5"><code class="inline">request!/5</code></a> for more detailed information.</p>
 
-  </section>
-</div>
-<div class="detail" id="get_header/2">
-  
-  
-  <div class="detail-header">
-    <a href="#get_header/2" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">get_header(headers, key)</span>
-    
-    
-    
-  </div>
-  <section class="docstring">
-    
   </section>
 </div>
 <div class="detail" id="head/3">
@@ -1403,15 +1378,15 @@ request fails.</p>
 
   </section>
 </div>
-<div class="detail" id="upload_request/4">
+<div class="detail" id="upload_request/5">
   
   
   <div class="detail-header">
-    <a href="#upload_request/4" class="detail-link" title="Link to this function">
+    <a href="#upload_request/5" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">upload_request(client, url, data, headers)</span>
+    <span class="signature">upload_request(client, base_url, url, data, headers)</span>
     
     
     

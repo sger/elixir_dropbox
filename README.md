@@ -30,7 +30,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   1. Add elixir_dropbox to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:elixir_dropbox, "~> 0.0.6"}]
+          [{:elixir_dropbox, "~> 0.0.7"}]
         end
 
   2. Ensure elixir_dropbox is started before your application:
@@ -48,7 +48,7 @@ $ mix test
 
 ## Documentation
 
-[https://hexdocs.pm/elixir_dropbox/0.0.6](https://hexdocs.pm/elixir_dropbox/0.0.6)
+[https://hexdocs.pm/elixir_dropbox/0.0.7](https://hexdocs.pm/elixir_dropbox/0.0.7)
 
 ## TODO
 - [ ] adding structs for responses

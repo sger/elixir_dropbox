@@ -1,0 +1,383 @@
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.16.4">
+    <title>ElixirDropbox.Paper.Docs – ElixirDropbox v0.0.7</title>
+    <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
+    
+    
+    <script src="dist/sidebar_items-024e7da218.js"></script>
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+
+    <div class="main">
+<button class="sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<section class="sidebar">
+
+  
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        ElixirDropbox
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.0.7
+      </h2>
+    </div>
+    
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">ElixirDropbox v0.0.7</small>
+        ElixirDropbox.Paper.Docs
+        
+      </h1>
+
+      
+
+      
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#docs_archive/2">docs_archive(client, doc_id)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Marks the given Paper doc as archived</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#docs_create/4">docs_create(client, import_format, parent_folder_id, file)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Creates a new Paper doc with the provided content</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#docs_download/3">docs_download(client, doc_id, export_format)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Exports and downloads Paper doc either as HTML or markdown</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#docs_list/5">docs_list(client, filter_by \\ &quot;docs_created&quot;, sort_by \\ &quot;modified&quot;, sort_order \\ &quot;descending&quot;, limit \\ 100)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Return the list of all Paper docs according to the argument specifications</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#docs_update/6">docs_update(client, doc_id, doc_update_policy, revision, import_format, file)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Updates an existing Paper doc with the provided content</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_folder_info/2">get_folder_info(client, doc_id)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Retrieves folder information for the given Paper doc</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#permanently_delete/2">permanently_delete(client, doc_id)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Permanently deletes the given Paper doc</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+          
+
+        </section>
+      
+
+      
+
+      
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+          <div class="detail" id="docs_archive/2">
+  
+  
+  <div class="detail-header">
+    <a href="#docs_archive/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">docs_archive(client, doc_id)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Marks the given Paper doc as archived.</p>
+<h2 id="docs_archive/2-example" class="section-heading">
+  <a href="#docs_archive/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Paper.Docs.docs_archive client, “”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-create</p>
+
+  </section>
+</div>
+<div class="detail" id="docs_create/4">
+  
+  
+  <div class="detail-header">
+    <a href="#docs_create/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">docs_create(client, import_format, parent_folder_id, file)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Creates a new Paper doc with the provided content.</p>
+<h2 id="docs_create/4-example" class="section-heading">
+  <a href="#docs_create/4-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Paper.Docs.docs_create client, “”, “”, “”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-create</p>
+
+  </section>
+</div>
+<div class="detail" id="docs_download/3">
+  
+  
+  <div class="detail-header">
+    <a href="#docs_download/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">docs_download(client, doc_id, export_format)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Exports and downloads Paper doc either as HTML or markdown.</p>
+<h2 id="docs_download/3-example" class="section-heading">
+  <a href="#docs_download/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Paper.Docs.docs_download client, “”, “”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-download</p>
+
+  </section>
+</div>
+<div class="detail" id="docs_list/5">
+  
+  
+    <span id="docs_list/1"></span>
+  
+    <span id="docs_list/2"></span>
+  
+    <span id="docs_list/3"></span>
+  
+    <span id="docs_list/4"></span>
+  
+  <div class="detail-header">
+    <a href="#docs_list/5" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">docs_list(client, filter_by \\ &quot;docs_created&quot;, sort_by \\ &quot;modified&quot;, sort_order \\ &quot;descending&quot;, limit \\ 100)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Return the list of all Paper docs according to the argument specifications.</p>
+<h2 id="docs_list/5-example" class="section-heading">
+  <a href="#docs_list/5-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Paper.Docs.docs_list client</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-list</p>
+
+  </section>
+</div>
+<div class="detail" id="docs_update/6">
+  
+  
+  <div class="detail-header">
+    <a href="#docs_update/6" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">docs_update(client, doc_id, doc_update_policy, revision, import_format, file)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Updates an existing Paper doc with the provided content.</p>
+<h2 id="docs_update/6-example" class="section-heading">
+  <a href="#docs_update/6-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Paper.Docs.docs_update client, “”, “”, “”, “”, “”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-download</p>
+
+  </section>
+</div>
+<div class="detail" id="get_folder_info/2">
+  
+  
+  <div class="detail-header">
+    <a href="#get_folder_info/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">get_folder_info(client, doc_id)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Retrieves folder information for the given Paper doc.</p>
+<h2 id="get_folder_info/2-example" class="section-heading">
+  <a href="#get_folder_info/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Paper.Docs.get_folder_info client, “”, “”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-get_folder_info</p>
+
+  </section>
+</div>
+<div class="detail" id="permanently_delete/2">
+  
+  
+  <div class="detail-header">
+    <a href="#permanently_delete/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">permanently_delete(client, doc_id)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Permanently deletes the given Paper doc.</p>
+<h2 id="permanently_delete/2-example" class="section-heading">
+  <a href="#permanently_delete/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Paper.Docs.permanently_delete client</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-list</p>
+
+  </section>
+</div>
+
+        </section>
+      
+
+      
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.16.4),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-da04b39d0c.js"></script>
+  
+  </body>
+</html>
+

@@ -1,0 +1,279 @@
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.16.4">
+    <title>ElixirDropbox.Paper.Users – ElixirDropbox v0.0.7</title>
+    <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
+    
+    
+    <script src="dist/sidebar_items-024e7da218.js"></script>
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+
+    <div class="main">
+<button class="sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<section class="sidebar">
+
+  
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        ElixirDropbox
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.0.7
+      </h2>
+    </div>
+    
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">ElixirDropbox v0.0.7</small>
+        ElixirDropbox.Paper.Users
+        
+      </h1>
+
+      
+
+      
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#add/5">add(client, doc_id, members, custom_message, quiet)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Allows an owner or editor to add users to a Paper doc or change their permissions using their email address or Dropbox account ID</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#list/4">list(client, doc_id, limit \\ 100, filter_by \\ &quot;shared&quot;)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Lists all users who visited the Paper doc or users with explicit access</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#list_continue/3">list_continue(client, doc_id, cursor)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Once a cursor has been retrieved from docs/users/list, use this to paginate through all users on the Paper doc</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#remove/3">remove(client, doc_id, member)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Allows an owner or editor to remove users from a Paper doc using their email address or Dropbox account ID</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+          
+
+        </section>
+      
+
+      
+
+      
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+          <div class="detail" id="add/5">
+  
+  
+  <div class="detail-header">
+    <a href="#add/5" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">add(client, doc_id, members, custom_message, quiet)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Allows an owner or editor to add users to a Paper doc or change their permissions using their email address or Dropbox account ID.</p>
+<h2 id="add/5-example" class="section-heading">
+  <a href="#add/5-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  members = [%{ “member” =&gt; %{ “.tag” =&gt; “email”, “email” =&gt; “test@test.com” }, “permission_level”: “view_and_comment” } ]
+  ElixirDropbox.Paper.Users.add client, “HAOV9lRfMNj90iGLqMmC7”, members, “”, false</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-add</p>
+
+  </section>
+</div>
+<div class="detail" id="list/4">
+  
+  
+    <span id="list/2"></span>
+  
+    <span id="list/3"></span>
+  
+  <div class="detail-header">
+    <a href="#list/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">list(client, doc_id, limit \\ 100, filter_by \\ &quot;shared&quot;)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Lists all users who visited the Paper doc or users with explicit access.</p>
+<h2 id="list/4-example" class="section-heading">
+  <a href="#list/4-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Paper.Users.list client, “HAOV9lRfMNj90iGLqMmC7”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-list</p>
+
+  </section>
+</div>
+<div class="detail" id="list_continue/3">
+  
+  
+  <div class="detail-header">
+    <a href="#list_continue/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">list_continue(client, doc_id, cursor)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Once a cursor has been retrieved from docs/users/list, use this to paginate through all users on the Paper doc.</p>
+<h2 id="list_continue/3-example" class="section-heading">
+  <a href="#list_continue/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Paper.Users.list_continue client, “HAOV9lRfMNj90iGLqMmC7”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-list-continue</p>
+
+  </section>
+</div>
+<div class="detail" id="remove/3">
+  
+  
+  <div class="detail-header">
+    <a href="#remove/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">remove(client, doc_id, member)</span>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Allows an owner or editor to remove users from a Paper doc using their email address or Dropbox account ID.</p>
+<h2 id="remove/3-example" class="section-heading">
+  <a href="#remove/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  member = %{ “member” =&gt; %{ “.tag” =&gt; “email”, “email” =&gt; “test@test.com” }
+  ElixirDropbox.Paper.Users.remove client, “”, member</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-remove</p>
+
+  </section>
+</div>
+
+        </section>
+      
+
+      
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.16.4),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-da04b39d0c.js"></script>
+  
+  </body>
+</html>
+

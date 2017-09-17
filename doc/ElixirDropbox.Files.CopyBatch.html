@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.16.4">
-    <title>ElixirDropbox.Sharing – ElixirDropbox v0.0.7</title>
+    <title>ElixirDropbox.Files.CopyBatch – ElixirDropbox v0.0.7</title>
     <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
     
     
@@ -66,7 +66,7 @@
 
       <h1>
         <small class="visible-xs">ElixirDropbox v0.0.7</small>
-        ElixirDropbox.Sharing
+        ElixirDropbox.Files.CopyBatch
         
       </h1>
 
@@ -90,19 +90,19 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#create_shared_link/2">create_shared_link(client, path)</a>
+    <a href="#check/2">check(client, async_job_id)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Create shared link returns map</p>
+    <div class="summary-synopsis"><p>Copy multiple files or folders to different locations at once in the user’s Dropbox</p>
 </div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#create_shared_link_to_struct/2">create_shared_link_to_struct(client, path)</a>
+    <a href="#copy_batch/6">copy_batch(client, from_path, to_path, allow_shared_folder \\ false, autorename \\ false, allow_ownership_transfer \\ false)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Create shared link returns SharedLink struct</p>
+    <div class="summary-synopsis"><p>Copy multiple files or folders to different locations at once in the user’s Dropbox</p>
 </div>
   
 </div>
@@ -126,64 +126,59 @@
             </a>
             Functions
           </h1>
-          <div class="detail" id="create_shared_link/2">
+          <div class="detail" id="check/2">
   
   
   <div class="detail-header">
-    <a href="#create_shared_link/2" class="detail-link" title="Link to this function">
+    <a href="#check/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">create_shared_link(client, path)</span>
+    <span class="signature">check(client, async_job_id)</span>
     
     
-    
-      <div class="specs">
-        
-          <pre>create_shared_link(Client, binary) :: Map</pre>
-        
-      </div>
     
   </div>
   <section class="docstring">
-    <p>Create shared link returns map</p>
-<h2 id="create_shared_link/2-example" class="section-heading">
-  <a href="#create_shared_link/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+    <p>Copy multiple files or folders to different locations at once in the user’s Dropbox.</p>
+<h2 id="check/2-example" class="section-heading">
+  <a href="#check/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Example
 </h2>
 
-<p>  ElixirDropbox.Sharing.create_shared_link client, “/Path”</p>
-<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#sharing-create_shared_link</p>
+<p>  ElixirDropbox.Files.CopyBatch.check(client, “”)</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-copy_batch</p>
 
   </section>
 </div>
-<div class="detail" id="create_shared_link_to_struct/2">
+<div class="detail" id="copy_batch/6">
   
+  
+    <span id="copy_batch/3"></span>
+  
+    <span id="copy_batch/4"></span>
+  
+    <span id="copy_batch/5"></span>
   
   <div class="detail-header">
-    <a href="#create_shared_link_to_struct/2" class="detail-link" title="Link to this function">
+    <a href="#copy_batch/6" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">create_shared_link_to_struct(client, path)</span>
+    <span class="signature">copy_batch(client, from_path, to_path, allow_shared_folder \\ false, autorename \\ false, allow_ownership_transfer \\ false)</span>
     
     
-    
-      <div class="specs">
-        
-          <pre>create_shared_link_to_struct(Client, binary) :: SharedLink</pre>
-        
-      </div>
     
   </div>
   <section class="docstring">
-    <p>Create shared link returns SharedLink struct</p>
-<h2 id="create_shared_link_to_struct/2-example" class="section-heading">
-  <a href="#create_shared_link_to_struct/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+    <p>Copy multiple files or folders to different locations at once in the user’s Dropbox.</p>
+<h2 id="copy_batch/6-example" class="section-heading">
+  <a href="#copy_batch/6-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Example
 </h2>
 
-<p>  ElixirDropbox.Sharing.create_shared_link_to_struct client, “/Path”</p>
+<p>  ElixirDropbox.Files.CopyBatch.copy_batch(client, “/Temp/“, “/Tmp”)</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-copy_batch</p>
 
   </section>
 </div>

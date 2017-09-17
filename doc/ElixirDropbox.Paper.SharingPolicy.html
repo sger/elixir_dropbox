@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.16.4">
-    <title>ElixirDropbox.Sharing – ElixirDropbox v0.0.7</title>
+    <title>ElixirDropbox.Paper.SharingPolicy – ElixirDropbox v0.0.7</title>
     <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
     
     
@@ -66,7 +66,7 @@
 
       <h1>
         <small class="visible-xs">ElixirDropbox v0.0.7</small>
-        ElixirDropbox.Sharing
+        ElixirDropbox.Paper.SharingPolicy
         
       </h1>
 
@@ -90,19 +90,19 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#create_shared_link/2">create_shared_link(client, path)</a>
+    <a href="#get/2">get(client, doc_id)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Create shared link returns map</p>
+    <div class="summary-synopsis"><p>Gets the default sharing policy for the given Paper doc</p>
 </div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#create_shared_link_to_struct/2">create_shared_link_to_struct(client, path)</a>
+    <a href="#set/3">set(client, doc_id, sharing_policy)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Create shared link returns SharedLink struct</p>
+    <div class="summary-synopsis"><p>Sets the default sharing policy for the given Paper doc</p>
 </div>
   
 </div>
@@ -126,64 +126,53 @@
             </a>
             Functions
           </h1>
-          <div class="detail" id="create_shared_link/2">
+          <div class="detail" id="get/2">
   
   
   <div class="detail-header">
-    <a href="#create_shared_link/2" class="detail-link" title="Link to this function">
+    <a href="#get/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">create_shared_link(client, path)</span>
+    <span class="signature">get(client, doc_id)</span>
     
     
-    
-      <div class="specs">
-        
-          <pre>create_shared_link(Client, binary) :: Map</pre>
-        
-      </div>
     
   </div>
   <section class="docstring">
-    <p>Create shared link returns map</p>
-<h2 id="create_shared_link/2-example" class="section-heading">
-  <a href="#create_shared_link/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+    <p>Gets the default sharing policy for the given Paper doc.</p>
+<h2 id="get/2-example" class="section-heading">
+  <a href="#get/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Example
 </h2>
 
-<p>  ElixirDropbox.Sharing.create_shared_link client, “/Path”</p>
-<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#sharing-create_shared_link</p>
+<p>  ElixirDropbox.Paper.SharingPolicy.get client, “”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-sharing_policy-get</p>
 
   </section>
 </div>
-<div class="detail" id="create_shared_link_to_struct/2">
+<div class="detail" id="set/3">
   
   
   <div class="detail-header">
-    <a href="#create_shared_link_to_struct/2" class="detail-link" title="Link to this function">
+    <a href="#set/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">create_shared_link_to_struct(client, path)</span>
+    <span class="signature">set(client, doc_id, sharing_policy)</span>
     
     
-    
-      <div class="specs">
-        
-          <pre>create_shared_link_to_struct(Client, binary) :: SharedLink</pre>
-        
-      </div>
     
   </div>
   <section class="docstring">
-    <p>Create shared link returns SharedLink struct</p>
-<h2 id="create_shared_link_to_struct/2-example" class="section-heading">
-  <a href="#create_shared_link_to_struct/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+    <p>Sets the default sharing policy for the given Paper doc.</p>
+<h2 id="set/3-example" class="section-heading">
+  <a href="#set/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Example
 </h2>
 
-<p>  ElixirDropbox.Sharing.create_shared_link_to_struct client, “/Path”</p>
+<p>  ElixirDropbox.Paper.SharingPolicy.set client, “HAOV9lRfMNj90iGLqMmC7”, sharing_policy
+More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-sharing_policy-set</p>
 
   </section>
 </div>

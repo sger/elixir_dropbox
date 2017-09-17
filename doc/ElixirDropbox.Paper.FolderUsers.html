@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.16.4">
-    <title>ElixirDropbox.Sharing – ElixirDropbox v0.0.7</title>
+    <title>ElixirDropbox.Paper.FolderUsers – ElixirDropbox v0.0.7</title>
     <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
     
     
@@ -66,7 +66,7 @@
 
       <h1>
         <small class="visible-xs">ElixirDropbox v0.0.7</small>
-        ElixirDropbox.Sharing
+        ElixirDropbox.Paper.FolderUsers
         
       </h1>
 
@@ -90,19 +90,19 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#create_shared_link/2">create_shared_link(client, path)</a>
+    <a href="#list/3">list(client, doc_id, limit \\ 100)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Create shared link returns map</p>
+    <div class="summary-synopsis"><p>Lists the users who are explicitly invited to the Paper folder in which the Paper doc is contained</p>
 </div>
   
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#create_shared_link_to_struct/2">create_shared_link_to_struct(client, path)</a>
+    <a href="#list_continue/3">list_continue(client, doc_id, cursor)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Create shared link returns SharedLink struct</p>
+    <div class="summary-synopsis"><p>Once a cursor has been retrieved from docs/folder_users/list, use this to paginate through all users on the Paper folder</p>
 </div>
   
 </div>
@@ -126,64 +126,55 @@
             </a>
             Functions
           </h1>
-          <div class="detail" id="create_shared_link/2">
+          <div class="detail" id="list/3">
   
+  
+    <span id="list/2"></span>
   
   <div class="detail-header">
-    <a href="#create_shared_link/2" class="detail-link" title="Link to this function">
+    <a href="#list/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">create_shared_link(client, path)</span>
+    <span class="signature">list(client, doc_id, limit \\ 100)</span>
     
     
-    
-      <div class="specs">
-        
-          <pre>create_shared_link(Client, binary) :: Map</pre>
-        
-      </div>
     
   </div>
   <section class="docstring">
-    <p>Create shared link returns map</p>
-<h2 id="create_shared_link/2-example" class="section-heading">
-  <a href="#create_shared_link/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+    <p>Lists the users who are explicitly invited to the Paper folder in which the Paper doc is contained.</p>
+<h2 id="list/3-example" class="section-heading">
+  <a href="#list/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Example
 </h2>
 
-<p>  ElixirDropbox.Sharing.create_shared_link client, “/Path”</p>
-<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#sharing-create_shared_link</p>
+<p>  ElixirDropbox.Paper.FolderUsers.list client, “HAOV9lRfMNj90iGLqMmC7”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-folder_users-list</p>
 
   </section>
 </div>
-<div class="detail" id="create_shared_link_to_struct/2">
+<div class="detail" id="list_continue/3">
   
   
   <div class="detail-header">
-    <a href="#create_shared_link_to_struct/2" class="detail-link" title="Link to this function">
+    <a href="#list_continue/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">create_shared_link_to_struct(client, path)</span>
+    <span class="signature">list_continue(client, doc_id, cursor)</span>
     
     
-    
-      <div class="specs">
-        
-          <pre>create_shared_link_to_struct(Client, binary) :: SharedLink</pre>
-        
-      </div>
     
   </div>
   <section class="docstring">
-    <p>Create shared link returns SharedLink struct</p>
-<h2 id="create_shared_link_to_struct/2-example" class="section-heading">
-  <a href="#create_shared_link_to_struct/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+    <p>Once a cursor has been retrieved from docs/folder_users/list, use this to paginate through all users on the Paper folder.</p>
+<h2 id="list_continue/3-example" class="section-heading">
+  <a href="#list_continue/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Example
 </h2>
 
-<p>  ElixirDropbox.Sharing.create_shared_link_to_struct client, “/Path”</p>
+<p>  ElixirDropbox.Paper.FolderUsers.list_continue client, “HAOV9lRfMNj90iGLqMmC7”, “AAuZ7AfEqob4EmNB0cmklBTgrtWTp/CYxfGDT/NF+eIOFBHicsClvbNxwo4mOkM9rcH8wjG/YH5We/RoYi5E42aJZ10PioyyeaamVJKsNpjoskFQx8FLwN0fLuJypnownrfowttiP7DSeahX+8eSZHCdhYbHgqTX8F4pVDY603amLDyVd6dCtxFwk+h+iCWAuAetCHBqmY3a6PVWHwXYgnpT/8NcDXkD08CkKEO798Y3de6l8RN5I5xFh5QK2sNCIsXA8NOL+g8TmejjwTYQ3YAa”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-folder_users-list-continue</p>
 
   </section>
 </div>

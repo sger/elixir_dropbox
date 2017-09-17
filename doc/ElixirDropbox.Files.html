@@ -5,13 +5,11 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.16.4">
-    <title>ElixirDropbox.Files – ElixirDropbox v0.0.6</title>
+    <title>ElixirDropbox.Files – ElixirDropbox v0.0.7</title>
     <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
     
-      <link rel="canonical" href="https://hexdocs.pm/elixir_dropbox/ElixirDropbox.Files.html" />
     
-    
-    <script src="dist/sidebar_items-f47c6719a8.js"></script>
+    <script src="dist/sidebar_items-024e7da218.js"></script>
     
   </head>
   <body data-type="modules">
@@ -31,7 +29,7 @@
         ElixirDropbox
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.6
+        v0.0.7
       </h2>
     </div>
     
@@ -67,7 +65,7 @@
 
 
       <h1>
-        <small class="visible-xs">ElixirDropbox v0.0.6</small>
+        <small class="visible-xs">ElixirDropbox v0.0.7</small>
         ElixirDropbox.Files
         
       </h1>
@@ -98,12 +96,6 @@
     <div class="summary-synopsis"><p>Copy a file or folder to a different location in the user’s Dropbox.
 If the source path is a folder all its contents will be copied</p>
 </div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#copy_batch/3">copy_batch(client, from_path, to_path)</a>
-  </div>
   
 </div>
 <div class="summary-row">
@@ -187,6 +179,9 @@ If the source path is a folder all its contents will be moved</p>
     <a href="#upload/6">upload(client, path, file, mode \\ &quot;add&quot;, autorename \\ true, mute \\ false)</a>
   </div>
   
+    <div class="summary-synopsis"><p>Create a new file with the contents provided in the request</p>
+</div>
+  
 </div>
 
   </div>
@@ -232,23 +227,6 @@ If the source path is a folder all its contents will be copied.</p>
 <p>  ElixirDropbox.Files.copy(client, “/Temp/first”, “/Tmp/second”)</p>
 <p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-copy_v2</p>
 
-  </section>
-</div>
-<div class="detail" id="copy_batch/3">
-  
-  
-  <div class="detail-header">
-    <a href="#copy_batch/3" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">copy_batch(client, from_path, to_path)</span>
-    
-    
-    
-  </div>
-  <section class="docstring">
-    
   </section>
 </div>
 <div class="detail" id="create_folder/2">
@@ -496,7 +474,15 @@ If the source path is a folder all its contents will be moved.</p>
     
   </div>
   <section class="docstring">
-    
+    <p>Create a new file with the contents provided in the request.</p>
+<h2 id="upload/6-example" class="section-heading">
+  <a href="#upload/6-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Files.upload client, “/mypdf.pdf”, “/mypdf.pdf”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-upload</p>
+
   </section>
 </div>
 

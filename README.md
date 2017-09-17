@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/sger/elixir_dropbox.svg?branch=master)](https://travis-ci.org/sger/elixir_dropbox)
 [![Coverage Status](https://coveralls.io/repos/github/sger/elixir_dropbox/badge.svg?branch=master)](https://coveralls.io/github/sger/elixir_dropbox?branch=master)
+[![Inline docs](http://inch-ci.org/github/sger/elixir_dropbox.svg)](http://inch-ci.org/github/sger/elixir_dropbox)
 
 # ElixirDropbox
 

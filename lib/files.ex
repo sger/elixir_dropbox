@@ -1,4 +1,8 @@
 defmodule ElixirDropbox.Files do
+  @moduledoc """
+  This module contains endpoints and data types
+  for basic file operations.
+  """
  import ElixirDropbox
  import ElixirDropbox.Utils
 
@@ -38,13 +42,17 @@ defmodule ElixirDropbox.Files do
   end
 
  @doc """
-  Delete folder returns map
+ Delete the file or folder at a given path.
+ If the path is a folder, all its contents will be deleted too.
+ A successful response indicates that the file or folder was deleted.
+ The returned metadata will be the corresponding FileMetadata
+ or FolderMetadata for the item at time of deletion, and not a DeletedMetadata object.
 
-   ## Example
+ ## Example
 
-    ElixirDropbox.Files.delete_folder client, "/Path"
+    ElixirDropbox.Files.delete_folder client, "/Homework/math/Prime_Numbers.txt"
 
-  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-delete
+ More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-delete_v2
  """
   def delete_folder(client, path) do
     body = %{"path" => path}
@@ -102,10 +110,34 @@ defmodule ElixirDropbox.Files do
     post(client, "/files/move", result)
   end
 
+  @doc """
+  Restore a file to a specific revision.
+
+  ## Example
+
+    ElixirDropbox.Files.restore(client, "/root/word.docx", "a1c10ce0dd78")
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-restore
+  """
   def restore(client, path, rev) do
     body = %{"path" => path, "rev" => rev}
     result = to_string(Poison.Encoder.encode(body, []))
     post(client, "/files/restore", result)
+  end
+
+  @doc """
+  Searches for files and folders.
+
+  ## Example
+
+    ElixirDropbox.Files.search(client, "/root", "word.docx")
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-search
+  """
+  def search(client, path, query, start \\ 0, max_results \\ 100, mode \\ "filename") do
+    body = %{"path" => path, "query" => query, "start" => start, "max_results" => max_results, "mode" => mode}
+    result = to_string(Poison.Encoder.encode(body, []))
+    post(client, "/files/search", result)
   end
 
   @doc """
@@ -128,6 +160,15 @@ defmodule ElixirDropbox.Files do
     upload_request(client, Application.get_env(:elixir_dropbox, :upload_url), "files/upload", file, headers)
   end
 
+  @doc """
+  Download a file from a user's Dropbox.
+
+  ## Example
+
+    ElixirDropbox.Files.download client, "/mypdf.pdf"
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-download
+  """
   def download(client, path) do
     dropbox_headers = %{
       :path => path
@@ -136,6 +177,15 @@ defmodule ElixirDropbox.Files do
     download_request(client, Application.get_env(:elixir_dropbox, :upload_url), "files/download", [], headers)
   end
 
+  @doc """
+  Get a thumbnail for an image.
+
+  ## Example
+
+    ElixirDropbox.Files.get_thumbnail client, "/image.jpg"
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-get_thumbnail
+  """
   def get_thumbnail(client, path, format \\ "jpeg", size \\ "w64h64") do
     dropbox_headers = %{
       :path => path,
@@ -146,6 +196,31 @@ defmodule ElixirDropbox.Files do
     download_request(client, Application.get_env(:elixir_dropbox, :upload_url), "files/get_thumbnail", [], headers)
   end
 
+  @doc """
+  Get thumbnails for a list of images. We allow up to 25 thumbnails in a single batch.
+
+  ## Example
+    batch = %{ "path" => "/image.jpg", "format" => "jpeg", "size" => "w64h64"}
+    entries = [batch]
+    ElixirDropbox.Files.get_thumbnail_batch client, entries
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-get_thumbnail_batch
+  """
+  def get_thumbnail_batch(client, entries) do
+    body = %{"entries" => entries}
+    result = to_string(Poison.Encoder.encode(body, []))
+    post_url(client, Application.get_env(:elixir_dropbox, :upload_url), "/files/get_thumbnail_batch", result)
+  end
+
+  @doc """
+  Get a preview for a file.
+
+  ## Example
+
+    ElixirDropbox.Files.get_preview client, "/mypdf.pdf"
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-get_preview
+  """
   def get_preview(client, path) do
     dropbox_headers = %{
       :path => path
@@ -154,8 +229,32 @@ defmodule ElixirDropbox.Files do
     download_request(client, Application.get_env(:elixir_dropbox, :upload_url), "files/get_preview", [], headers)
   end
 
-  def get_metadata(client, path, include_media_info \\ false) do
-    body = %{"path" => path, "include_media_info" => include_media_info}
+  @doc """
+  Get a temporary link to stream content of a file. This link will expire in four hours and afterwards you will get 410 Gone. Content-Type of the link is determined automatically by the file's mime type.
+
+  ## Example
+
+    ElixirDropbox.Files.get_temporary_link client, "/video.mp4"
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-get_preview
+  """
+  def get_temporary_link(client, path) do
+    body = %{"path" => path}
+    result = to_string(Poison.Encoder.encode(body, []))
+    post(client, "/files/get_temporary_link", result)
+  end
+
+  @doc """
+  Returns the metadata for a file or folder.
+
+  ## Example
+
+    ElixirDropbox.Files.get_metadata client, "/mypdf.pdf"
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-get_metadata
+  """
+  def get_metadata(client, path, include_media_info \\ false, include_deleted \\ false, include_has_explicit_shared_members \\ false) do
+    body = %{"path" => path, "include_media_info" => include_media_info, "include_deleted" => include_deleted, "include_has_explicit_shared_members" => include_has_explicit_shared_members}
     result = to_string(Poison.Encoder.encode(body, []))
     post(client, "/files/get_metadata", result)
    end

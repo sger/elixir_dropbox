@@ -13,6 +13,11 @@ defmodule ElixirDropbox do
     post_request(client, "#{@base_url}#{url}", body, headers)
   end
 
+  def post_url(client, base_url, url, body \\ "") do
+    headers = json_headers()
+    post_request(client, "#{base_url}#{url}", body, headers)
+  end
+
   @spec upload_response(HTTPoison.Response.t) :: response
   def upload_response(%HTTPoison.Response{status_code: 200, body: body}), do: Poison.decode!(body)
   def upload_response(%HTTPoison.Response{status_code: status_code, body: body }) do
@@ -44,7 +49,7 @@ defmodule ElixirDropbox do
     headers = Map.merge(headers, headers(client))
     HTTPoison.post!("#{base_url}#{url}", data, headers) |> download_response
   end
-  
+
   def headers(client) do
     %{ "Authorization" => "Bearer #{client.access_token}" }
   end

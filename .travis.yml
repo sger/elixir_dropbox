@@ -8,7 +8,7 @@ notifications:
   recipients:
     - spiros.gerokostas@gmail.com
 otp_release:
-  - 18.2
+  - 19.0
 env:
   - MIX_ENV=test
 script:

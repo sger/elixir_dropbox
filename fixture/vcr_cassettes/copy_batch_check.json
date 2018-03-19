@@ -3,7 +3,7 @@
     "request": {
       "body": "{\"async_job_id\":\"dbjid:AADfHTK-rZomc8C-kSccfEthUD9Oa4pCikHLzLbskC-EWNwrDaNSzQOdozKzoOPPJPokd9nAI6qFnPlYvtIIca-6\"}",
       "headers": {
-        "Authorization": "Bearer access_token",
+        "Authorization": "Bearer IV3n31frOYcAAAAAAAAOHPe0I4S8j0FR67uESCYisqhclYlqQA3rHjrTiuYS9QuU",
         "Content-Type": "application/json"
       },
       "method": "post",
@@ -12,10 +12,11 @@
       "url": "https://api.dropboxapi.com/2/files/copy_batch/check"
     },
     "response": {
+      "binary": false,
       "body": "{\".tag\": \"complete\", \"entries\": [{\"metadata\": {\".tag\": \"folder\", \"name\": \"Tmp2\", \"path_lower\": \"/tmp2\", \"path_display\": \"/Tmp2\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAMvg\"}}]}",
       "headers": {
         "Server": "nginx",
-        "Date": "Sun, 17 Sep 2017 06:09:07 GMT",
+        "Date": "Mon, 19 Mar 2018 16:07:45 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -23,9 +24,9 @@
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "X-Content-Type-Options": "nosniff",
-        "X-Dropbox-Request-Id": "401f85d09a2f6229dca7abcdf8cc4aaa",
+        "X-Dropbox-Request-Id": "f77d8b6184fb0597fcadc716aa57f595",
         "X-Frame-Options": "SAMEORIGIN",
-        "X-Server-Response-Time": "113"
+        "X-Server-Response-Time": "266"
       },
       "status_code": 200,
       "type": "ok"

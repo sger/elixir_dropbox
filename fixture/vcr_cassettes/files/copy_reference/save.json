@@ -3,7 +3,7 @@
     "request": {
       "body": "{\"path\":\"/TempCopy\",\"copy_reference\":\"AAAAACf83yBxc3JzeWtueHJneHI\"}",
       "headers": {
-        "Authorization": "Bearer access_token",
+        "Authorization": "Bearer IV3n31frOYcAAAAAAAAOHPe0I4S8j0FR67uESCYisqhclYlqQA3rHjrTiuYS9QuU",
         "Content-Type": "application/json"
       },
       "method": "post",
@@ -12,10 +12,11 @@
       "url": "https://api.dropboxapi.com/2/files/copy_reference/save"
     },
     "response": {
-      "body": "{\"metadata\": {\".tag\": \"folder\", \"name\": \"TempCopy\", \"path_lower\": \"/tempcopy\", \"path_display\": \"/TempCopy\", \"id\": \"id:txv5wbAE_Y0AAAAAAAAM3g\"}}",
+      "binary": false,
+      "body": "{\"metadata\": {\".tag\": \"folder\", \"name\": \"TempCopy\", \"path_lower\": \"/tempcopy\", \"path_display\": \"/TempCopy\", \"id\": \"id:txv5wbAE_Y0AAAAAAAANEg\"}}",
       "headers": {
         "Server": "nginx",
-        "Date": "Mon, 18 Sep 2017 15:57:48 GMT",
+        "Date": "Mon, 19 Mar 2018 16:07:43 GMT",
         "Content-Type": "application/json",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive",
@@ -23,9 +24,9 @@
         "Cache-Control": "no-cache",
         "Pragma": "no-cache",
         "X-Content-Type-Options": "nosniff",
-        "X-Dropbox-Request-Id": "925dfeee0a33c25449bbf930db1abc5f",
+        "X-Dropbox-Request-Id": "575b11fe0933af361ff5e84289f52910",
         "X-Frame-Options": "SAMEORIGIN",
-        "X-Server-Response-Time": "646"
+        "X-Server-Response-Time": "1112"
       },
       "status_code": 200,
       "type": "ok"

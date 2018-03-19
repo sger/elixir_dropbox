@@ -6,7 +6,7 @@ defmodule ElixirDropbox.Client do
 
   @spec new() :: t
   def new(), do: %__MODULE__{}
-  
+
   @spec new(access_token) :: t
   def new(access_token) do
     %__MODULE__{access_token: access_token}

@@ -18,21 +18,24 @@ defmodule ElixirDropbox do
     post_request(client, "#{base_url}#{url}", body, headers)
   end
 
-  @spec upload_response(HTTPoison.Response.t) :: response
+  @spec upload_response(HTTPoison.Response.t()) :: response
   def upload_response(%HTTPoison.Response{status_code: 200, body: body}), do: Poison.decode!(body)
-  def upload_response(%HTTPoison.Response{status_code: status_code, body: body }) do
+
+  def upload_response(%HTTPoison.Response{status_code: status_code, body: body}) do
     cond do
-    status_code in 400..599 ->
-      {{:status_code, status_code}, JSON.decode(body)}
+      status_code in 400..599 ->
+        {{:status_code, status_code}, JSON.decode(body)}
     end
   end
 
-  @spec download_response(HTTPoison.Response.t) :: response
-  def download_response(%HTTPoison.Response{status_code: 200, body: body, headers: headers}), do: %{body: body, headers: headers}
-  def download_response(%HTTPoison.Response{status_code: status_code, body: body }) do
+  @spec download_response(HTTPoison.Response.t()) :: response
+  def download_response(%HTTPoison.Response{status_code: 200, body: body, headers: headers}),
+    do: %{body: body, headers: headers}
+
+  def download_response(%HTTPoison.Response{status_code: status_code, body: body}) do
     cond do
-    status_code in 400..599 ->
-      {{:status_code, status_code}, JSON.decode(body)}
+      status_code in 400..599 ->
+        {{:status_code, status_code}, JSON.decode(body)}
     end
   end
 
@@ -51,10 +54,10 @@ defmodule ElixirDropbox do
   end
 
   def headers(client) do
-    %{ "Authorization" => "Bearer #{client.access_token}" }
+    %{"Authorization" => "Bearer #{client.access_token}"}
   end
 
   def json_headers do
-    %{ "Content-Type" => "application/json" }
+    %{"Content-Type" => "application/json"}
   end
 end

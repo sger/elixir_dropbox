@@ -6,17 +6,19 @@ defmodule ElixirDropbox.Mixfile do
   """
 
   def project do
-    [app: :elixir_dropbox,
-     version: "0.0.7",
-     elixir: "~> 1.3",
-     name: "ElixirDropbox",
-     description: @description,
-     package: package(),
-     test_coverage: [tool: ExCoveralls],
-     preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test, "coveralls.post": :test],
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :elixir_dropbox,
+      version: "0.0.7",
+      elixir: "~> 1.3",
+      name: "ElixirDropbox",
+      description: @description,
+      package: package(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test],
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
@@ -29,19 +31,21 @@ defmodule ElixirDropbox.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      { :httpoison, "~> 0.8" },
-      { :poison, "~> 1.5" },
-      { :inch_ex, "~> 0.5", only: [:dev, :test] },
-      { :json, "~> 0.3.0" },
-      { :ex_doc, "~> 0.14", only: :dev, runtime: false },
-      { :exvcr, "~> 0.8", only: :test },
-      { :excoveralls, "~> 0.7", only: :test }
+      {:httpoison, "~> 0.8"},
+      {:poison, "~> 1.5"},
+      {:inch_ex, "~> 0.5", only: [:dev, :test]},
+      {:json, "~> 0.3.0"},
+      {:ex_doc, "~> 0.14", only: :dev, runtime: false},
+      {:exvcr, "~> 0.8", only: :test},
+      {:excoveralls, "~> 0.7", only: :test}
     ]
   end
 
   defp package do
-    [maintainers: ["Spiros Gerokostas"],
-     licenses: ["MIT"],
-     links: %{ "GitHub" => "https://github.com/sger/elixir_dropbox" }]
+    [
+      maintainers: ["Spiros Gerokostas"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/sger/elixir_dropbox"}
+    ]
   end
 end

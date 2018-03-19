@@ -1,65 +1,71 @@
 defmodule ElixirDropbox.Paper.Users do
- import ElixirDropbox
+  import ElixirDropbox
 
- @doc """
- Allows an owner or editor to add users to a Paper doc or change their permissions using their email address or Dropbox account ID.
+  @doc """
+  Allows an owner or editor to add users to a Paper doc or change their permissions using their email address or Dropbox account ID.
 
- ## Example
+  ## Example
 
-   members = [%{ "member" => %{ ".tag" => "email", "email" => "test@test.com" }, "permission_level": "view_and_comment" } ]
-   ElixirDropbox.Paper.Users.add client, "HAOV9lRfMNj90iGLqMmC7", members, "", false
+    members = [%{ "member" => %{ ".tag" => "email", "email" => "test@test.com" }, "permission_level": "view_and_comment" } ]
+    ElixirDropbox.Paper.Users.add client, "HAOV9lRfMNj90iGLqMmC7", members, "", false
 
- More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-add
- """
- def add(client, doc_id, members, custom_message, quiet) do
-   body = %{"doc_id" => doc_id, "members" => members, "custom_message" => custom_message, "quiet" => quiet}
-   result = to_string(Poison.Encoder.encode(body, []))
-   post(client, "/paper/docs/users/add", result)
- end
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-add
+  """
+  def add(client, doc_id, members, custom_message, quiet) do
+    body = %{
+      "doc_id" => doc_id,
+      "members" => members,
+      "custom_message" => custom_message,
+      "quiet" => quiet
+    }
 
- @doc """
- Lists all users who visited the Paper doc or users with explicit access.
+    result = to_string(Poison.Encoder.encode(body, []))
+    post(client, "/paper/docs/users/add", result)
+  end
 
- ## Example
+  @doc """
+  Lists all users who visited the Paper doc or users with explicit access.
 
-   ElixirDropbox.Paper.Users.list client, "HAOV9lRfMNj90iGLqMmC7"
+  ## Example
 
- More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-list
- """
- def list(client, doc_id, limit \\ 100, filter_by \\ "shared") do
-   body = %{"doc_id" => doc_id, "limit" => limit, "filter_by" => filter_by}
-   result = to_string(Poison.Encoder.encode(body, []))
-   post(client, "/paper/docs/users/list", result)
- end
+    ElixirDropbox.Paper.Users.list client, "HAOV9lRfMNj90iGLqMmC7"
 
- @doc """
- Once a cursor has been retrieved from docs/users/list, use this to paginate through all users on the Paper doc.
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-list
+  """
+  def list(client, doc_id, limit \\ 100, filter_by \\ "shared") do
+    body = %{"doc_id" => doc_id, "limit" => limit, "filter_by" => filter_by}
+    result = to_string(Poison.Encoder.encode(body, []))
+    post(client, "/paper/docs/users/list", result)
+  end
 
- ## Example
+  @doc """
+  Once a cursor has been retrieved from docs/users/list, use this to paginate through all users on the Paper doc.
 
-   ElixirDropbox.Paper.Users.list_continue client, "HAOV9lRfMNj90iGLqMmC7"
+  ## Example
 
- More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-list-continue
- """
- def list_continue(client, doc_id, cursor) do
-   body = %{"doc_id" => doc_id, "cursor" => cursor}
-   result = to_string(Poison.Encoder.encode(body, []))
-   post(client, "/paper/docs/users/continue", result)
- end
+    ElixirDropbox.Paper.Users.list_continue client, "HAOV9lRfMNj90iGLqMmC7"
 
- @doc """
- Allows an owner or editor to remove users from a Paper doc using their email address or Dropbox account ID.
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-list-continue
+  """
+  def list_continue(client, doc_id, cursor) do
+    body = %{"doc_id" => doc_id, "cursor" => cursor}
+    result = to_string(Poison.Encoder.encode(body, []))
+    post(client, "/paper/docs/users/continue", result)
+  end
 
- ## Example
+  @doc """
+  Allows an owner or editor to remove users from a Paper doc using their email address or Dropbox account ID.
 
-   member = %{ "member" => %{ ".tag" => "email", "email" => "test@test.com" }
-   ElixirDropbox.Paper.Users.remove client, "", member
+  ## Example
 
- More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-remove
- """
- def remove(client, doc_id, member) do
-   body = %{"doc_id" => doc_id, "member" => member}
-   result = to_string(Poison.Encoder.encode(body, []))
-   post(client, "/paper/docs/users/remove", result)
- end
+    member = %{ "member" => %{ ".tag" => "email", "email" => "test@test.com" }
+    ElixirDropbox.Paper.Users.remove client, "", member
+
+  More info at: https://www.dropbox.com/developers/documentation/http/documentation#paper-docs-users-remove
+  """
+  def remove(client, doc_id, member) do
+    body = %{"doc_id" => doc_id, "member" => member}
+    result = to_string(Poison.Encoder.encode(body, []))
+    post(client, "/paper/docs/users/remove", result)
+  end
 end

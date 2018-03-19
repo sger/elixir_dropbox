@@ -21,6 +21,7 @@ defmodule ElixirDropbox.Users do
   @spec get_account_to_struct(Client, binary) :: Account
   def get_account_to_struct(client, id) do
     response = get_account(client, id)
+
     if is_map(response) do
       to_struct(%ElixirDropbox.Account{}, response)
     else

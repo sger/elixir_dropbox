@@ -1,6 +1,6 @@
 defmodule ElixirDropbox.Account do
-	defstruct account_id: nil,
-    		  	account_type: nil,
+  defstruct account_id: nil,
+            account_type: nil,
             country: nil,
             disabled: nil,
             email: nil,

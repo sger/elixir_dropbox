@@ -37,7 +37,8 @@ defmodule ElixirDropbox.Mixfile do
       {:json, "~> 0.3.0"},
       {:ex_doc, "~> 0.14", only: :dev, runtime: false},
       {:exvcr, "~> 0.8", only: :test},
-      {:excoveralls, "~> 0.7", only: :test}
+      {:excoveralls, "~> 0.7", only: :test},
+      {:credo, "~> 0.9.0-rc1", only: [:dev, :test], runtime: false}
     ]
   end
 

@@ -3,7 +3,6 @@
               {modules,['Elixir.ElixirDropbox','Elixir.ElixirDropbox.Account',
                         'Elixir.ElixirDropbox.Allocation',
                         'Elixir.ElixirDropbox.Client',
-                        'Elixir.ElixirDropbox.FileProperties.Properties',
                         'Elixir.ElixirDropbox.FileRequests',
                         'Elixir.ElixirDropbox.Files',
                         'Elixir.ElixirDropbox.Files.CopyBatch',

@@ -1,4 +1,8 @@
 defmodule ElixirDropbox.Paper.Docs do
+  @moduledoc """
+  This namespace contains endpoints and data types for
+  managing docs and folders in Dropbox Paper.
+  """
   import ElixirDropbox
 
   @doc """

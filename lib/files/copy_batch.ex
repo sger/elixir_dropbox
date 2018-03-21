@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Files.CopyBatch do
+  @moduledoc """
+  """
   import ElixirDropbox
 
   @doc """

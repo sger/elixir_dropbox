@@ -1,4 +1,7 @@
 defmodule ElixirDropbox.Files.UploadSession do
+  @moduledoc """
+  This namespace contains endpoints and data types for basic file operations.
+  """
   import ElixirDropbox
 
   @doc """

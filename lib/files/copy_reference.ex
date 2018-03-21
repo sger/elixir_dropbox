@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Files.CopyReference do
+  @moduledoc """
+  """
   import ElixirDropbox
 
   @doc """

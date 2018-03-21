@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Paper.FolderUsers do
+  @moduledoc """
+  """
   import ElixirDropbox
 
   @doc """

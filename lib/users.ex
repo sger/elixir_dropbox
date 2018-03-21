@@ -1,4 +1,7 @@
 defmodule ElixirDropbox.Users do
+  @moduledoc """
+  This namespace contains endpoints and data types for user management.
+  """
   import ElixirDropbox
   import ElixirDropbox.Utils
 
@@ -7,7 +10,7 @@ defmodule ElixirDropbox.Users do
 
   ## Example
 
-    ElixirDropbox.Users client, "TOKEN"  
+    ElixirDropbox.Users client, "TOKEN"
 
   More info at: https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account
   """

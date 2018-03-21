@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.FileRequests do
+  @moduledoc """
+  """
   import ElixirDropbox
 
   @doc """

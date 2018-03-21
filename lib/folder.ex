@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Folder do
+  @moduledoc """
+  """
   defstruct id: nil,
             name: nil,
             path_display: nil,

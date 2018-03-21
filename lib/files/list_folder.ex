@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Files.ListFolder do
+  @moduledoc """
+  """
   import ElixirDropbox
 
   @doc """

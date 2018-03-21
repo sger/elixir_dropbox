@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Files.SaveUrl do
+  @moduledoc """
+  """
   import ElixirDropbox
 
   @doc """

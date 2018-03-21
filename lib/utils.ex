@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Utils do
+  @moduledoc """
+  """
   def to_struct(kind, attrs) do
     struct = struct(kind)
 

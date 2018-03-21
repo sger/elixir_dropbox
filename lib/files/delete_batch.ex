@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Files.DeleteBatch do
+  @moduledoc """
+  """
   import ElixirDropbox
 
   @doc """

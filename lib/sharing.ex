@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Sharing do
+  @moduledoc """
+  """
   import ElixirDropbox
   import ElixirDropbox.Utils
 

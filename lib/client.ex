@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Client do
+  @moduledoc """
+  """
   defstruct access_token: nil
 
   @type access_token :: %{access_token: binary}

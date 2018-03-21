@@ -1,4 +1,6 @@
 defmodule ElixirDropbox.Paper.SharingPolicy do
+  @moduledoc """
+  """
   import ElixirDropbox
 
   @doc """

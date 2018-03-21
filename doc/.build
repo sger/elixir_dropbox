@@ -1,10 +1,10 @@
-dist/app-5b9e160cec.css
-dist/app-da04b39d0c.js
+dist/app-480ffdc169.css
+dist/app-9bd040e5e5.js
 fonts/icomoon.eot
 fonts/icomoon.svg
 fonts/icomoon.ttf
 fonts/icomoon.woff
-dist/sidebar_items-024e7da218.js
+dist/sidebar_items-1282c64f8b.js
 api-reference.html
 search.html
 404.html
@@ -15,7 +15,11 @@ ElixirDropbox.Client.html
 ElixirDropbox.FileRequests.html
 ElixirDropbox.Files.html
 ElixirDropbox.Files.CopyBatch.html
+ElixirDropbox.Files.CopyReference.html
+ElixirDropbox.Files.DeleteBatch.html
 ElixirDropbox.Files.ListFolder.html
+ElixirDropbox.Files.SaveUrl.html
+ElixirDropbox.Files.UploadSession.html
 ElixirDropbox.Folder.html
 ElixirDropbox.Name.html
 ElixirDropbox.Paper.Docs.html

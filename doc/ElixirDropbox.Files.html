@@ -4,21 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.16.4">
-    <title>ElixirDropbox.Files – ElixirDropbox v0.0.7</title>
-    <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
+    <meta name="generator" content="ExDoc v0.18.3">
+    <title>ElixirDropbox.Files – ElixirDropbox v0.0.8</title>
+    <link rel="stylesheet" href="dist/app-480ffdc169.css" />
+    
+      <link rel="canonical" href="https://hexdocs.pm/elixir_dropbox/ElixirDropbox.Files.html" />
+    
+    <script src="dist/sidebar_items-1282c64f8b.js"></script>
     
     
-    <script src="dist/sidebar_items-024e7da218.js"></script>
+    
     
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
 
     <div class="main">
-<button class="sidebar-toggle">
+<button class="sidebar-button sidebar-toggle">
   <span class="icon-menu" aria-hidden="true"></span>
   <span class="sr-only">Toggle Sidebar</span>
+</button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
 </button>
 <section class="sidebar">
 
@@ -29,7 +37,7 @@
         ElixirDropbox
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.7
+        v0.0.8
       </h2>
     </div>
     
@@ -39,7 +47,7 @@
     <button type="submit" class="search-button">
       <span class="icon-search" aria-hidden="true"></span>
     </button>
-    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
   </form>
 
   <ul class="sidebar-listNav">
@@ -47,8 +55,6 @@
 
     
       <li><a id="modules-list" href="#full-list">Modules</a></li>
-    
-
     
 
     
@@ -65,11 +71,17 @@
 
 
       <h1>
-        <small class="visible-xs">ElixirDropbox v0.0.7</small>
+        <small class="visible-xs">ElixirDropbox v0.0.8</small>
         ElixirDropbox.Files
         
       </h1>
 
+      
+        <section id="moduledoc">
+          <p>This module contains endpoints and data types
+for basic file operations.</p>
+
+        </section>
       
 
       
@@ -121,7 +133,11 @@ If the source path is a folder all its contents will be copied</p>
     <a href="#delete_folder/2">delete_folder(client, path)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Delete folder returns map</p>
+    <div class="summary-synopsis"><p>Delete the file or folder at a given path.
+If the path is a folder, all its contents will be deleted too.
+A successful response indicates that the file or folder was deleted.
+The returned metadata will be the corresponding FileMetadata
+or FolderMetadata for the item at time of deletion, and not a DeletedMetadata object</p>
 </div>
   
 </div>
@@ -139,11 +155,17 @@ If the source path is a folder all its contents will be copied</p>
     <a href="#download/2">download(client, path)</a>
   </div>
   
+    <div class="summary-synopsis"><p>Download a file from a user’s Dropbox</p>
+</div>
+  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#get_metadata/3">get_metadata(client, path, include_media_info \\ false)</a>
+    <a href="#get_metadata/5">get_metadata(client, path, include_media_info \\ false, include_deleted \\ false, include_has_explicit_shared_members \\ false)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Returns the metadata for a file or folder</p>
+</div>
   
 </div>
 <div class="summary-row">
@@ -151,11 +173,35 @@ If the source path is a folder all its contents will be copied</p>
     <a href="#get_preview/2">get_preview(client, path)</a>
   </div>
   
+    <div class="summary-synopsis"><p>Get a preview for a file</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_temporary_link/2">get_temporary_link(client, path)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Get a temporary link to stream content of a file. This link will expire in four hours and afterwards you will get 410 Gone. Content-Type of the link is determined automatically by the file’s mime type</p>
+</div>
+  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#get_thumbnail/4">get_thumbnail(client, path, format \\ &quot;jpeg&quot;, size \\ &quot;w64h64&quot;)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Get a thumbnail for an image</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_thumbnail_batch/2">get_thumbnail_batch(client, entries)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Get thumbnails for a list of images. We allow up to 25 thumbnails in a single batch</p>
+</div>
   
 </div>
 <div class="summary-row">
@@ -172,6 +218,18 @@ If the source path is a folder all its contents will be moved</p>
   <div class="summary-signature">
     <a href="#restore/3">restore(client, path, rev)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Restore a file to a specific revision</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#search/6">search(client, path, query, start \\ 0, max_results \\ 100, mode \\ &quot;filename&quot;)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Searches for files and folders</p>
+</div>
   
 </div>
 <div class="summary-row">
@@ -243,7 +301,7 @@ If the source path is a folder all its contents will be copied.</p>
     
       <div class="specs">
         
-          <pre>create_folder(Client, binary) :: Map</pre>
+          <pre>create_folder(Client, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: Map</pre>
         
       </div>
     
@@ -274,7 +332,7 @@ If the source path is a folder all its contents will be copied.</p>
     
       <div class="specs">
         
-          <pre>create_folder_to_struct(Client, binary) :: Map</pre>
+          <pre>create_folder_to_struct(Client, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()) :: Map</pre>
         
       </div>
     
@@ -305,10 +363,18 @@ If the source path is a folder all its contents will be copied.</p>
     
   </div>
   <section class="docstring">
-    <p> Delete folder returns map</p>
-<p>  ## Example</p>
-<p>   ElixirDropbox.Files.delete_folder client, “/Path”</p>
-<p> More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-delete</p>
+    <p>Delete the file or folder at a given path.
+If the path is a folder, all its contents will be deleted too.
+A successful response indicates that the file or folder was deleted.
+The returned metadata will be the corresponding FileMetadata
+or FolderMetadata for the item at time of deletion, and not a DeletedMetadata object.</p>
+<h2 id="delete_folder/2-example" class="section-heading">
+  <a href="#delete_folder/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>   ElixirDropbox.Files.delete_folder client, “/Homework/math/Prime_Numbers.txt”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-delete_v2</p>
 
   </section>
 </div>
@@ -351,26 +417,46 @@ If the source path is a folder all its contents will be copied.</p>
     
   </div>
   <section class="docstring">
-    
+    <p>Download a file from a user’s Dropbox.</p>
+<h2 id="download/2-example" class="section-heading">
+  <a href="#download/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Files.download client, “/mypdf.pdf”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-download</p>
+
   </section>
 </div>
-<div class="detail" id="get_metadata/3">
+<div class="detail" id="get_metadata/5">
   
   
     <span id="get_metadata/2"></span>
   
+    <span id="get_metadata/3"></span>
+  
+    <span id="get_metadata/4"></span>
+  
   <div class="detail-header">
-    <a href="#get_metadata/3" class="detail-link" title="Link to this function">
+    <a href="#get_metadata/5" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">get_metadata(client, path, include_media_info \\ false)</span>
+    <span class="signature">get_metadata(client, path, include_media_info \\ false, include_deleted \\ false, include_has_explicit_shared_members \\ false)</span>
     
     
     
   </div>
   <section class="docstring">
-    
+    <p>Returns the metadata for a file or folder.</p>
+<h2 id="get_metadata/5-example" class="section-heading">
+  <a href="#get_metadata/5-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Files.get_metadata client, “/mypdf.pdf”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-get_metadata</p>
+
   </section>
 </div>
 <div class="detail" id="get_preview/2">
@@ -387,7 +473,40 @@ If the source path is a folder all its contents will be copied.</p>
     
   </div>
   <section class="docstring">
+    <p>Get a preview for a file.</p>
+<h2 id="get_preview/2-example" class="section-heading">
+  <a href="#get_preview/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Files.get_preview client, “/mypdf.pdf”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-get_preview</p>
+
+  </section>
+</div>
+<div class="detail" id="get_temporary_link/2">
+  
+  
+  <div class="detail-header">
+    <a href="#get_temporary_link/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">get_temporary_link(client, path)</span>
     
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Get a temporary link to stream content of a file. This link will expire in four hours and afterwards you will get 410 Gone. Content-Type of the link is determined automatically by the file’s mime type.</p>
+<h2 id="get_temporary_link/2-example" class="section-heading">
+  <a href="#get_temporary_link/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Files.get_temporary_link client, “/video.mp4”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-get_preview</p>
+
   </section>
 </div>
 <div class="detail" id="get_thumbnail/4">
@@ -408,7 +527,42 @@ If the source path is a folder all its contents will be copied.</p>
     
   </div>
   <section class="docstring">
+    <p>Get a thumbnail for an image.</p>
+<h2 id="get_thumbnail/4-example" class="section-heading">
+  <a href="#get_thumbnail/4-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Files.get_thumbnail client, “/image.jpg”</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-get_thumbnail</p>
+
+  </section>
+</div>
+<div class="detail" id="get_thumbnail_batch/2">
+  
+  
+  <div class="detail-header">
+    <a href="#get_thumbnail_batch/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">get_thumbnail_batch(client, entries)</span>
     
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Get thumbnails for a list of images. We allow up to 25 thumbnails in a single batch.</p>
+<h2 id="get_thumbnail_batch/2-example" class="section-heading">
+  <a href="#get_thumbnail_batch/2-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  batch = %{ “path” =&gt; “/image.jpg”, “format” =&gt; “jpeg”, “size” =&gt; “w64h64”}
+  entries = [batch]
+  ElixirDropbox.Files.get_thumbnail_batch client, entries</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-get_thumbnail_batch</p>
+
   </section>
 </div>
 <div class="detail" id="move/3">
@@ -451,7 +605,46 @@ If the source path is a folder all its contents will be moved.</p>
     
   </div>
   <section class="docstring">
+    <p>Restore a file to a specific revision.</p>
+<h2 id="restore/3-example" class="section-heading">
+  <a href="#restore/3-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Files.restore(client, “/root/word.docx”, “a1c10ce0dd78”)</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-restore</p>
+
+  </section>
+</div>
+<div class="detail" id="search/6">
+  
+  
+    <span id="search/3"></span>
+  
+    <span id="search/4"></span>
+  
+    <span id="search/5"></span>
+  
+  <div class="detail-header">
+    <a href="#search/6" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">search(client, path, query, start \\ 0, max_results \\ 100, mode \\ &quot;filename&quot;)</span>
     
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Searches for files and folders.</p>
+<h2 id="search/6-example" class="section-heading">
+  <a href="#search/6-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Example
+</h2>
+
+<p>  ElixirDropbox.Files.search(client, “/root”, “word.docx”)</p>
+<p>More info at: https://www.dropbox.com/developers/documentation/http/documentation#files-search</p>
+
   </section>
 </div>
 <div class="detail" id="upload/6">
@@ -494,20 +687,22 @@ If the source path is a folder all its contents will be moved.</p>
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.16.4),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.3),
           </span>
           <span class="line">
             designed by
             <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
             </span>
         </p>
-        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
       </footer>
     </div>
   </div>
 </section>
 </div>
-  <script src="dist/app-da04b39d0c.js"></script>
+  <script src="dist/app-9bd040e5e5.js"></script>
+  
+  
+  
   
   </body>
 </html>

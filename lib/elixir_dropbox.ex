@@ -4,8 +4,6 @@ defmodule ElixirDropbox do
   """
   use HTTPoison.Base
 
-  @type response :: {any}
-
   @base_url Application.get_env(:elixir_dropbox, :base_url)
 
   def post(client, url, body \\ "") do
@@ -41,6 +39,9 @@ defmodule ElixirDropbox do
 
   def post_request(client, url, body, headers) do
     headers = Map.merge(headers, headers(client))
+    IO.inspect headers
+    IO.inspect url
+    IO.inspect body
     HTTPoison.post!(url, body, headers) |> process_response
   end
 

@@ -4,6 +4,8 @@ defmodule ElixirDropbox do
   """
   use HTTPoison.Base
 
+  @type response :: {any}
+
   @base_url Application.get_env(:elixir_dropbox, :base_url)
 
   def post(client, url, body \\ "") do
